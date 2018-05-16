@@ -1,0 +1,23 @@
+<!DOCTYPE Sistema [
+<!ELEMENT Sistema (Usuarios)>
+<!ELEMENT Usuarios (Usuario+)>
+<!ELEMENT Usuario (Nombre , Contra , Rol)>
+<!ELEMENT Nombre (#PCDATA)>
+<!ELEMENT Contra (#PCDATA)>
+<!ELEMENT Rol (#PCDATA)>
+]>
+<Sistema>
+	<Usuarios>
+		<Usuario>
+			<Nombre>Rafael</Nombre>
+			<Contra>1234</Contra>
+			<Rol>alumno </Rol>
+		</Usuario>
+		<Usuario>
+			<Nombre>Erick</Nombre>
+			<Contra>4321</Contra>
+			<Rol>Profesor</Rol>
+		</Usuario>
+	</Usuarios>
+
+</Sistema>
