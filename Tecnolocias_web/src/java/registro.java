@@ -27,12 +27,13 @@ public class registro extends HttpServlet {
         String nom = request.getParameter("nom");
         String pass = request.getParameter("pass");
         String tipo = request.getParameter("tipo");
+        String correo = request.getParameter("correo");
         Operaciones ope = new Operaciones ();
         String path = request.getRealPath("archivo_xml");
                 path=path + "/base.xml";
         int registro=0;
         try {
-            registro=ope.registro(nom, pass, tipo, path);
+            registro=ope.registro(nom, pass, tipo, path,correo);
         } catch (ParserConfigurationException | SAXException | JDOMException ex) {
             Logger.getLogger(registro.class.getName()).log(Level.SEVERE, null, ex);
         }

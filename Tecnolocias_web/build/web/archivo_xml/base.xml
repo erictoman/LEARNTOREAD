@@ -1,11 +1,5 @@
-<!DOCTYPE Sistema [
-<!ELEMENT Sistema (Usuarios)>
-<!ELEMENT Usuarios (Usuario+)>
-<!ELEMENT Usuario (Nombre , Contra , Rol)>
-<!ELEMENT Nombre (#PCDATA)>
-<!ELEMENT Contra (#PCDATA)>
-<!ELEMENT Rol (#PCDATA)>
-]>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Sistema>
 <Sistema>
 	<Usuarios>
 		<Usuario>
@@ -18,6 +12,6 @@
 			<Contra>4321</Contra>
 			<Rol>Profesor</Rol>
 		</Usuario>
-	</Usuarios>
+	<Usuario><Nombre>Eric Uriel Trejo Trejo</Nombre><Contra>123123123</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Eric Uriel Trejo Trejo</Nombre><Contra>123123123</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Oscar</Nombre><Contra>123</Contra><Rol>2</Rol><Correo>crash_station@hotmail.com</Correo></Usuario><Usuario><Nombre>Oscar</Nombre><Contra>123</Contra><Rol>2</Rol><Correo>crash_station@hotmail.com</Correo></Usuario><Usuario><Nombre>Eric Uriel Trejo Trejo</Nombre><Contra>123123</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Eric Uriel Trejo Trejo</Nombre><Contra>123123</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Presidente de Academia</Nombre><Contra>123</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Presidente de Academia</Nombre><Contra>123</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Raul</Nombre><Contra>1234</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Raul</Nombre><Contra>1234</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Eric Trejo</Nombre><Contra>1231232</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Eric Trejo</Nombre><Contra>1231232</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Eric Trejo</Nombre><Contra>123123</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Eric Trejo</Nombre><Contra>123123</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario></Usuarios>
 
 </Sistema>
