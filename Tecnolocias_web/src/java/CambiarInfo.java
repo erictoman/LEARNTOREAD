@@ -38,7 +38,8 @@ public class CambiarInfo extends HttpServlet {
         {
             try {
                 sesion=request.getSession(true);
-                sesion.setAttribute("Correo", Correo);
+                sesion.setAttribute("Correo",Correo);
+                sesion.setAttribute("Nombre",Nombre);
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<body bgcolor='#A2E375'>");

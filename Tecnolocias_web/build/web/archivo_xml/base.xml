@@ -1,20 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE Sistema>
-
+<!DOCTYPE Sistema [
+<!ELEMENT Sistema (Usuarios)>
+<!ELEMENT Usuarios (Usuario+)>
+<!ELEMENT Usuario (Nombre , Contra , Rol,Correo)>
+<!ELEMENT Nombre (#PCDATA)>
+<!ELEMENT Contra (#PCDATA)>
+<!ELEMENT Correo (#PCDATA)>
+<!ELEMENT Rol (#PCDATA)>
+]>
 <Sistema>
-  <Usuarios>
-    <Usuario>
-      <Nombre>Eric Uriel Trejo Trejo</Nombre>
-      <Contra>5656</Contra>
-      <Rol>1</Rol>
-      <Correo>ericto117@gmail.com</Correo>
-    </Usuario>
-    <Usuario>
-      <Nombre>Eric Uriel Trejo Trejo</Nombre>
-      <Contra>123123</Contra>
-      <Rol>2</Rol>
-      <Correo>ericto1170@gmail.com</Correo>
-    </Usuario>
-  </Usuarios>
+	<Usuarios>
+            <Usuario>
+                <Nombre>Eric Uriel Trejo Trejo</Nombre>
+                <Contra>123123123</Contra>
+                <Rol>1</Rol>
+                <Correo>ericto117@gmail.com</Correo>
+            </Usuario>
+	</Usuarios>
 </Sistema>
-
