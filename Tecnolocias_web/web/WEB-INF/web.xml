@@ -8,6 +8,22 @@
         <servlet-name>registro</servlet-name>
         <servlet-class>registro</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>index</servlet-name>
+        <servlet-class>index</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Cambios</servlet-name>
+        <servlet-class>Cambios</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Registrarse</servlet-name>
+        <servlet-class>Registrarse</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CambiarInfo</servlet-name>
+        <servlet-class>CambiarInfo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -15,6 +31,22 @@
     <servlet-mapping>
         <servlet-name>registro</servlet-name>
         <url-pattern>/registro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>index</servlet-name>
+        <url-pattern>/index.html</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Cambios</servlet-name>
+        <url-pattern>/Cambios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Registrarse</servlet-name>
+        <url-pattern>/Registrarse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CambiarInfo</servlet-name>
+        <url-pattern>/CambiarInfo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -6,9 +6,8 @@
 
 
 function validaP(form){
-    alert("Las contraseñas no coinciden");
     var a =form.pass.value;
-    var b =form.pass.value; 
+    var b =form.pass1.value; 
     if (a===b) {
         return true;
     } else {    // input is valid -- reset the error message

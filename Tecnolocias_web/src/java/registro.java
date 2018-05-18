@@ -22,65 +22,73 @@ public class registro extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter out= response.getWriter();
-        response.setContentType("text/html;charset=UTF-8");
-        String nom = request.getParameter("nom");
-        String pass = request.getParameter("pass");
-        String tipo = request.getParameter("tipo");
-        String correo = request.getParameter("correo");
-        Operaciones ope = new Operaciones ();
-        String path = request.getRealPath("archivo_xml");
-                path=path + "/base.xml";
-        int registro=0;
-        try {
-            registro=ope.registro(nom, pass, tipo, path,correo);
-        } catch (ParserConfigurationException | SAXException | JDOMException ex) {
-            Logger.getLogger(registro.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if(registro==1){
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<body bgcolor='#A2E375'>");
-            out.println("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.3/sweetalert2.all.js\"></script>");
-            out.println("<script>");
-            out.println(" swal({\n" +
-            "  title: 'Correcto',\n" +
-            "  text: \"Bienvenido !\",\n" +
-            "  type: 'Correcto',\n" +
-            "  showCancelButton: false,\n" +
-            "  confirmButtonColor: '#d33',\n" +
-            "  cancelButtonColor: '#d33',\n" +
-            "  confirmButtonText: 'OK'\n" +
-            "}).then(function (result) {\n" +
-            "  if (result.value) {\n" +
-            "   window.location.href=\"index.html\";"+
-            "  }else{ window.location.href=\"index.html\";}\n" +
-            "})");
-            out.println("</script>");
-            out.println("</body>");
-            out.println("</html>");
-        }else{
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<body bgcolor='#A2E375'>");
-            out.println("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.3/sweetalert2.all.js\"></script>");
-            out.println("<script>");
-            out.println(" swal({\n" +
-            "  title: 'Error',\n" +
-            "  text: \"Usuario o contraseña incorrecta !\",\n" +
-            "  type: 'error',\n" +
-            "  showCancelButton: false,\n" +
-            "  confirmButtonColor: '#d33',\n" +
-            "  cancelButtonColor: '#d33',\n" +
-            "  confirmButtonText: 'OK'\n" +
-            "}).then(function (result) {\n" +
-            "  if (result.value) {\n" +
-            "   window.location.href=\"index.html\";"+
-            "  }else{ window.location.href=\"index.html\";}\n" +
-            "})");
-            out.println("</script>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+            PrintWriter out= response.getWriter();
+            response.setContentType("text/html;charset=UTF-8");
+            String nom = request.getParameter("nom");
+            String pass = request.getParameter("pass");
+            String tipo = request.getParameter("tipo");
+            String correo = request.getParameter("correo");
+            Operaciones ope = new Operaciones ();
+            String path = request.getRealPath("archivo_xml");
+            path=path + "/base.xml";
+            int registro=0;
+            try {
+                if(ope.checaReg(correo,path)==0){
+                    registro=ope.registro(nom, pass, tipo, path,correo);
+                    if(registro==1){
+                        out.println("<!DOCTYPE html>");
+                        out.println("<html>");
+                        out.println("<body bgcolor='#A2E375'>");
+                        out.println("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.3/sweetalert2.all.js\"></script>");
+                        out.println("<script>");
+                        out.println(" swal({\n" +
+                                "  title: 'Correcto',\n" +
+                                "  text: \"Bienvenido !\",\n" +
+                                "  type: 'Correcto',\n" +
+                                "  showCancelButton: false,\n" +
+                                "  confirmButtonColor: '#d33',\n" +
+                                "  cancelButtonColor: '#d33',\n" +
+                                "  confirmButtonText: 'OK'\n" +
+                                "}).then(function (result) {\n" +
+                                "  if (result.value) {\n" +
+                                "   window.location.href=\"index.html\";"+
+                                "  }else{ window.location.href=\"index.html\";}\n" +
+                                "})");
+                        out.println("</script>");
+                        out.println("</body>");
+                        out.println("</html>");
+                    }else{
+                        out.println("<!DOCTYPE html>");
+                        out.println("<html>");
+                        out.println("<body bgcolor='#A2E375'>");
+                        out.println("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.3/sweetalert2.all.js\"></script>");
+                        out.println("<script>");
+                        out.println(" swal({\n" +
+                                "  title: 'Error',\n" +
+                                "  text: \"Usuario o contraseña incorrecta !\",\n" +
+                                "  type: 'error',\n" +
+                                "  showCancelButton: false,\n" +
+                                "  confirmButtonColor: '#d33',\n" +
+                                "  cancelButtonColor: '#d33',\n" +
+                                "  confirmButtonText: 'OK'\n" +
+                                "}).then(function (result) {\n" +
+                                "  if (result.value) {\n" +
+                                "   window.location.href=\"index.html\";"+
+                                "  }else{ window.location.href=\"index.html\";}\n" +
+                                "})");
+                        out.println("</script>");
+                        out.println("</body>");
+                        out.println("</html>");
+                    }
+                }else{
+                    out.print("<H1>USUARIO CREADO PREVIAMENTE</H1>");
+                }
+            } catch (JDOMException ex) {
+                Logger.getLogger(registro.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ParserConfigurationException ex) {
+                Logger.getLogger(registro.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SAXException ex) {
+                Logger.getLogger(registro.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 }

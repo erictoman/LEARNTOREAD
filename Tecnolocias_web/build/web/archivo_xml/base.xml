@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Sistema>
-<Sistema>
-	<Usuarios>
-		<Usuario>
-			<Nombre>Rafael</Nombre>
-			<Contra>1234</Contra>
-			<Rol>alumno </Rol>
-		</Usuario>
-		<Usuario>
-			<Nombre>Erick</Nombre>
-			<Contra>4321</Contra>
-			<Rol>Profesor</Rol>
-		</Usuario>
-	<Usuario><Nombre>Eric Uriel Trejo Trejo</Nombre><Contra>123123123</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Eric Uriel Trejo Trejo</Nombre><Contra>123123123</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Oscar</Nombre><Contra>123</Contra><Rol>2</Rol><Correo>crash_station@hotmail.com</Correo></Usuario><Usuario><Nombre>Oscar</Nombre><Contra>123</Contra><Rol>2</Rol><Correo>crash_station@hotmail.com</Correo></Usuario><Usuario><Nombre>Eric Uriel Trejo Trejo</Nombre><Contra>123123</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Eric Uriel Trejo Trejo</Nombre><Contra>123123</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Presidente de Academia</Nombre><Contra>123</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Presidente de Academia</Nombre><Contra>123</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Raul</Nombre><Contra>1234</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Raul</Nombre><Contra>1234</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Eric Trejo</Nombre><Contra>1231232</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Eric Trejo</Nombre><Contra>1231232</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Eric Trejo</Nombre><Contra>123123</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario><Usuario><Nombre>Eric Trejo</Nombre><Contra>123123</Contra><Rol>2</Rol><Correo>ericto117@gmail.com</Correo></Usuario></Usuarios>
 
+<Sistema>
+  <Usuarios>
+    <Usuario>
+      <Nombre>Eric Uriel Trejo Trejo</Nombre>
+      <Contra>5656</Contra>
+      <Rol>1</Rol>
+      <Correo>ericto117@gmail.com</Correo>
+    </Usuario>
+    <Usuario>
+      <Nombre>Eric Uriel Trejo Trejo</Nombre>
+      <Contra>123123</Contra>
+      <Rol>2</Rol>
+      <Correo>ericto1170@gmail.com</Correo>
+    </Usuario>
+  </Usuarios>
 </Sistema>
+
