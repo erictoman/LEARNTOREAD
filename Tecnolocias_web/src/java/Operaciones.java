@@ -1,3 +1,4 @@
+import com.sun.faces.facelets.util.FastWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
