@@ -22,8 +22,33 @@ public class index extends HttpServlet {
             response.setContentType("text/html; charset=UTF-8");
             PrintWriter out = response.getWriter();
             if(sesion.getAttribute("Correo")!=null){
-                out.print("<H1>Bienvenido "+sesion.getAttribute("Nombre")+"</H1>"
+                if(sesion.getAttribute("Tipo").equals("Super")){
+                    out.println("<!DOCTYPE html>\n" +
+            "\n" +
+            "<html>\n" +
+            "    <head>\n" +
+            "        <title>TODO supply a title</title>\n" +
+            "        <meta charset=\"UTF-8\">\n" +
+            "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+            "    </head>\n" +
+            "    <body>\n" + "<H1>Bienvenido "+sesion.getAttribute("Nombre")+"</H1> <br/> <form action='Usuarios' method='get'><input type='submit' value='Control'/> </form> " + 
+                   "<br/><br/><form action='logout' method='get'>"
+                        + "<input type='submit' value='Salir'>"
+                        + "</form> "+
+            "    </body>\n" +
+            "</html>\n" +
+            "");
+                    
+                }
+                else
+                {
+                out.print("<H1>Bienvenido "+sesion.getAttribute("Nombre")+ "</H1>"
                         + "<a href=\"Cambios\">Cambiar informacion de cuenta</a>");
+                out.println("<br/><br/><form action='logout' method='get'>"
+                        + "<input type='submit' value='Salir'>"
+                        + "</form> ");
+                }
+                
             }else{
                 out.println("<!DOCTYPE html>\n" +
             "\n" +

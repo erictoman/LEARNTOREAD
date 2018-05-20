@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -15,20 +14,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.jdom.Document;
-import org.jdom.Element;
 import org.jdom.JDOMException;
-import org.jdom.input.SAXBuilder;
 
-/**
- *
- * @author ertim
- */
-public class CambiarInfo extends HttpServlet {
-@Override
+
+public class CambiarInfoS extends HttpServlet {
+
+  
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    try {
+        try {
         PrintWriter out=response.getWriter();
         response.setContentType("text/html;charset=UTF-8");
         String Correo = request.getParameter("correo");
@@ -37,18 +32,14 @@ public class CambiarInfo extends HttpServlet {
         HttpSession sesion = request.getSession();
         String path = request.getRealPath("/archivo_xml");
         path=path + "/base.xml";
-      
-        
         Operaciones opera = new Operaciones();
-         String correoOriginal=(String)sesion.getAttribute("correoCambiar");
-         System.out.println("" +Correo+   "  ds " + correoOriginal);
-        int p=opera.cambios(Nombre, Pass, path, Correo, correoOriginal);
+          
+        String correoOriginal=(String)sesion.getAttribute("correoCambiar");
+        int p=opera.cambios(Nombre, Pass, path, Correo , correoOriginal);
+        
         if(p==1)
         {
-            try {
-                sesion=request.getSession(true);
-                sesion.setAttribute("Correo",Correo);
-                sesion.setAttribute("Nombre",Nombre);
+                       
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<body bgcolor='#A2E375'>");
@@ -57,7 +48,7 @@ public class CambiarInfo extends HttpServlet {
                 out.println(" swal({\n" +
                         "  title: 'Correcto',\n" +
                         "  text: \"¡ Cambios aplicados !\",\n" +
-                        "  type: 'success',\n" +
+                        "  type: 'Correcto',\n" +
                         "  showCancelButton: false,\n" +
                         "  confirmButtonColor: '#d33',\n" +
                         "  cancelButtonColor: '#d33',\n" +
@@ -70,11 +61,8 @@ public class CambiarInfo extends HttpServlet {
                 out.println("</script>");
                 out.println("</body>");
                 out.println("</html>");
-                String nombre = opera.obtenNombre(Correo, path);
-                sesion.setAttribute("Nombre", nombre);
-            } catch (JDOMException ex) {
-                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
+           
         }else{
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -101,5 +89,8 @@ public class CambiarInfo extends HttpServlet {
     } catch (JDOMException ex) {
         Logger.getLogger(CambiarInfo.class.getName()).log(Level.SEVERE, null, ex);
     }
+        
     }
+
+
 }

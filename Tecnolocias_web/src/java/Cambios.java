@@ -11,10 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author ertim
- */
 public class Cambios extends HttpServlet {
 @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
@@ -25,6 +21,7 @@ public class Cambios extends HttpServlet {
             String nombre=(String) sesion.getAttribute("Nombre");
             Operaciones ops = new Operaciones();
             if(correo!=null){
+                  sesion.setAttribute("correoCambiar", correo);
                 out.println("<!DOCTYPE html>\n" +
                         "<html>\n" +
                         "    <head>\n" +

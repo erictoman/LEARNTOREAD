@@ -1,12 +1,5 @@
-<!DOCTYPE Sistema [
-<!ELEMENT Sistema (Usuarios)>
-<!ELEMENT Usuarios (Usuario+)>
-<!ELEMENT Usuario (Nombre , Contra , Rol,Correo)>
-<!ELEMENT Nombre (#PCDATA)>
-<!ELEMENT Contra (#PCDATA)>
-<!ELEMENT Correo (#PCDATA)>
-<!ELEMENT Rol (#PCDATA)>
-]>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Sistema>
 <Sistema>
 	<Usuarios>
             <Usuario>
@@ -15,5 +8,12 @@
                 <Rol>1</Rol>
                 <Correo>ericto117@gmail.com</Correo>
             </Usuario>
+		 <Usuario>
+                <Nombre>Rafael Hernandez </Nombre>
+                <Contra>1234</Contra>
+                <Rol>1</Rol>
+                <Correo>rafacreed@gmail.com</Correo>
+            </Usuario>
+		<bandera />
 	</Usuarios>
 </Sistema>

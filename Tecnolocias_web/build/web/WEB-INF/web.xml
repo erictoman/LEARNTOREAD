@@ -24,6 +24,22 @@
         <servlet-name>CambiarInfo</servlet-name>
         <servlet-class>CambiarInfo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>logout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Usuarios</servlet-name>
+        <servlet-class>Usuarios</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CambiosS</servlet-name>
+        <servlet-class>CambiosS</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CambiarInfoS</servlet-name>
+        <servlet-class>CambiarInfoS</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -47,6 +63,22 @@
     <servlet-mapping>
         <servlet-name>CambiarInfo</servlet-name>
         <url-pattern>/CambiarInfo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Usuarios</servlet-name>
+        <url-pattern>/Usuarios</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CambiosS</servlet-name>
+        <url-pattern>/CambiosS</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CambiarInfoS</servlet-name>
+        <url-pattern>/CambiarInfoS</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

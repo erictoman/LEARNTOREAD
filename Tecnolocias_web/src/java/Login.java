@@ -38,7 +38,7 @@ public class Login extends HttpServlet {
                         out.println(" swal({\n" +
                                 "  title: 'Correcto',\n" +
                                 "  text: \"Bienvenido !\",\n" +
-                                "  type: 'Correcto',\n" +
+                                "  type: 'success',\n" +
                                 "  showCancelButton: false,\n" +
                                 "  confirmButtonColor: '#d33',\n" +
                                 "  cancelButtonColor: '#d33',\n" +
@@ -52,6 +52,8 @@ public class Login extends HttpServlet {
                         out.println("</body>");
                         out.println("</html>");
                         String nombre = opera.obtenNombre(Correo, path);
+                        String tipo = opera.obtenTipo(Correo, path);
+                        sesion.setAttribute("Tipo", tipo);
                         sesion.setAttribute("Nombre", nombre);
                     } catch (JDOMException ex) {
                         Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
