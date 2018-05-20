@@ -1,39 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Sistema>
-<<<<<<< HEAD
 <Sistema>
 	<Usuarios>
             <Usuario>
-                <Nombre>Eric Uriel Trejo Trejo</Nombre>
+                <Nombre>Eric Uriel Trejo </Nombre>
                 <Contra>123123123</Contra>
                 <Rol>1</Rol>
                 <Correo>ericto117@gmail.com</Correo>
             </Usuario>
 		 <Usuario>
-                <Nombre>Rafael Hernandez </Nombre>
+                <Nombre>Rafael Hernandez Ruiz</Nombre>
                 <Contra>1234</Contra>
-                <Rol>1</Rol>
-                <Correo>rafacreed@gmail.com</Correo>
+                <Rol>Super</Rol>
+                <Correo>rafassassinscreed@gmail.com</Correo>
             </Usuario>
 		<bandera />
 	</Usuarios>
-=======
-
-<Sistema>
-  <Usuarios>
-    <Usuario>
-      <Nombre>Miguel Davila</Nombre>
-      <Contra>123123</Contra>
-      <Rol>1</Rol>
-      <Correo>ericto117@gmail.com</Correo>
-    </Usuario>
-    <Usuario>
-      <Nombre>Eric Uriel Trejo Trejo</Nombre>
-      <Contra>123123</Contra>
-      <Rol>2</Rol>
-      <Correo>ericto1q17@gmail.com</Correo>
-    </Usuario>
-  </Usuarios>
->>>>>>> origin/master
 </Sistema>
-
