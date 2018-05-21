@@ -5,15 +5,14 @@
             <Usuario>
                 <Nombre>Eric Uriel Trejo </Nombre>
                 <Contra>123123123</Contra>
-                <Rol>1</Rol>
+                <Rol>Alumno</Rol>
                 <Correo>ericto117@gmail.com</Correo>
             </Usuario>
 		 <Usuario>
                 <Nombre>Rafael Hernandez Ruiz</Nombre>
                 <Contra>1234</Contra>
-                <Rol>Super</Rol>
+                <Rol>Profesor</Rol>
                 <Correo>rafassassinscreed@gmail.com</Correo>
             </Usuario>
-		<bandera />
-	</Usuarios>
+	<Usuario><Nombre>Mauricio Ponce</Nombre><Contra>Mau12</Contra><Rol>Alumno</Rol><Correo>Mau@gmail.com</Correo></Usuario><Usuario><Nombre>arturo</Nombre><Contra>art13</Contra><Rol>Alumno</Rol><Correo>art@gmail.com</Correo></Usuario><Usuario><Nombre>Humberto</Nombre><Contra>beto</Contra><Rol>Alumno</Rol><Correo>humberto@gmail.com</Correo></Usuario></Usuarios>
 </Sistema>

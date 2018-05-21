@@ -22,7 +22,7 @@ public class index extends HttpServlet {
             response.setContentType("text/html; charset=UTF-8");
             PrintWriter out = response.getWriter();
             if(sesion.getAttribute("Correo")!=null){
-                if(sesion.getAttribute("Tipo").equals("Super")){
+                if(sesion.getAttribute("Tipo").equals("Profesor")){
                     out.println("<!DOCTYPE html>\n" +
             "\n" +
             "<html>\n" +

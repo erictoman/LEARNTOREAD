@@ -67,12 +67,14 @@ public class Usuarios extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Lista de Usuarios</h1>");
             out.println("<table border='1'>");
+            out.println("<tr><td>Usuario</td> <td>Tipo</td></tr>");
             for(int i=0; i<lista.size(); i++)
             {
                 node=(Element) lista.get(i);
-                out.println("<tr><td>"+node.getChildText("Correo")+"</td><td> <a href='CambiosS?correo="+node.getChildText("Correo")+"'>Cambiar</a></td> <td> <a href='Ban?correo="+node.getChildText("Correo")+"'>Eliminar</a></td> </tr>");
+                out.println("<tr><td>"+node.getChildText("Correo")+"</td><td>"+node.getChildText("Rol")+" </td> <td><a href='CambiosS?correo="+node.getChildText("Correo")+"'>Cambiar</a></td> <td> <a href='Ban?correo="+node.getChildText("Correo")+"'>Eliminar</a></td> </tr>");
             }
             out.println("</table>");
+            out.println("<h3><a href='add'> Agregar Usuarios </a> </h3>");
             out.println("</body>");
             out.println("</html>");
         

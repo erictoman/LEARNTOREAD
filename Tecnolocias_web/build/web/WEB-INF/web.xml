@@ -40,6 +40,10 @@
         <servlet-name>CambiarInfoS</servlet-name>
         <servlet-class>CambiarInfoS</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>add</servlet-name>
+        <servlet-class>add</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>CambiarInfoS</servlet-name>
         <url-pattern>/CambiarInfoS</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>add</servlet-name>
+        <url-pattern>/add</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

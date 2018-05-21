@@ -68,7 +68,7 @@ public class CambiosS extends HttpServlet {
                         "        <form action=\"CambiarInfoS\" method=\"get\" >\n" +
                         "            <label for=\"correo\">Correo:</label><input type=\"text\" name=\"correo\" value='"+correo+"'/><br/>\n" +
                         "            <label for=\"nom\">Nombre:</label><input type=\"text\" name=\"nom\" value='"+Nombre+"'/><br/>\n" +
-                        "            <label for=\"password\">Contraseña:</label><input type=\"hidden\" name=\"pass\" value='"+Pass+"'/><br/>\n" +
+                        "            <input type=\"hidden\" name=\"pass\" value='"+Pass+"'/><br/>\n" +
                        
                         "            <br>\n" +
                         "            <input type=\"submit\"/>\n" +
