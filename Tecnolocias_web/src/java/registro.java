@@ -44,7 +44,7 @@ public class registro extends HttpServlet {
                         out.println(" swal({\n" +
                                 "  title: 'Correcto',\n" +
                                 "  text: \"Bienvenido !\",\n" +
-                                "  type: 'Correcto',\n" +
+                                "  type: 'success',\n" +
                                 "  showCancelButton: false,\n" +
                                 "  confirmButtonColor: '#d33',\n" +
                                 "  cancelButtonColor: '#d33',\n" +
