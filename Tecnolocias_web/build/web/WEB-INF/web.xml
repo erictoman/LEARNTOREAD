@@ -44,6 +44,10 @@
         <servlet-name>add</servlet-name>
         <servlet-class>add</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Ban</servlet-name>
+        <servlet-class>Ban</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>add</servlet-name>
         <url-pattern>/add</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Ban</servlet-name>
+        <url-pattern>/Ban</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

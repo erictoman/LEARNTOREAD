@@ -148,4 +148,26 @@ public class Operaciones {
             }
         return "";
     }
+    
+    public int Ban(String Correo , String path)throws JDOMException, IOException
+    {
+       File xml = new File(path);
+       SAXBuilder builder = new SAXBuilder();
+       
+       Document doc = (Document) builder.build(xml);
+       Element rootnode = doc.getRootElement();
+       Element usuarios = rootnode.getChild("Usuarios");
+       List lista = usuarios.getChildren("Usuario");
+       XMLOutputter xmlout= new XMLOutputter();
+       for(int i =0;i<lista.size();i++){
+           Element node = (Element) lista.get(i);
+           if(node.getChildText("Correo").equals(Correo)){
+               node.detach();
+               xmlout.output(doc,new FileWriter(path));
+               xmlout.output(doc,System.out);
+                return 1;
+           }   
+       }
+       return 0;
+    }
 }
