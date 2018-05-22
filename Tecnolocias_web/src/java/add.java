@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.xml.parsers.ParserConfigurationException;
 import org.jdom.JDOMException;
 import org.xml.sax.SAXException;
@@ -20,8 +21,12 @@ public class add extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession sesion = request.getSession();
           response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        if(sesion.getAttribute("CorreoU")!= null && ((String)sesion.getAttribute("Tipo")).equalsIgnoreCase("Profesor"))
+        {
+        
         if(request.getParameter("altas")!=null)
         {
              String nom = request.getParameter("nom");
@@ -123,7 +128,33 @@ public class add extends HttpServlet {
             out.println("</html>");
         }
     }
-
+        else
+    {
+          out.println("<!DOCTYPE html>");
+                        out.println("<html>");
+                        out.println("<body bgcolor='#A2E375'>");
+                        out.println("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.3/sweetalert2.all.js\"></script>");
+                        out.println("<script>");
+                        out.println(" swal({\n" +
+                                "  title: 'Error',\n" +
+                                "  text: \"Inicia Sesion  !\",\n" +
+                                "  type: 'error',\n" +
+                                "  showCancelButton: false,\n" +
+                                "  confirmButtonColor: '#d33',\n" +
+                                "  cancelButtonColor: '#d33',\n" +
+                                "  confirmButtonText: 'OK'\n" +
+                                "}).then(function (result) {\n" +
+                                "  if (result.value) {\n" +
+                                "   window.location.href=\"index.html\";"+
+                                "  }else{ window.location.href=\"index.html\";}\n" +
+                                "})");
+                        out.println("</script>");
+                        out.println("</body>");
+                        out.println("</html>");
+        
+    }
+    }
+    
   
    
 

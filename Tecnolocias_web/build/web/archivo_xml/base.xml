@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Sistema>
 <Sistema>
-	<Usuarios>
-            
-	</Usuarios>
+  <Usuarios>
+    <Usuario>
+      <Nombre>Eric Uriel Trejo Trejo</Nombre>
+      <Contra>123123123</Contra>
+      <Rol>Profesor</Rol>
+      <Correo>ericto117@gmail.com</Correo>
+    </Usuario>
+    <Usuario>
+      <Nombre>Rafael Hernandez</Nombre>
+      <Contra>1234</Contra>
+      <Rol>Profesor</Rol>
+      <Correo>rafassassinscreed@gmail.com</Correo>
+    </Usuario>
+    <Usuario>
+      <Nombre>Humberto</Nombre>
+      <Contra>123</Contra>
+      <Rol>Alumno</Rol>
+      <Correo>beto@gmail.com</Correo>
+    </Usuario>
+    
+  </Usuarios>
 </Sistema>

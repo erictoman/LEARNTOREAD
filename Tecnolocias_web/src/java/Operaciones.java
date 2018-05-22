@@ -64,6 +64,7 @@ public class Operaciones {
         doc.getRootElement().getChild("Usuarios").addContent(Usuario);
         XMLOutputter fmt = new XMLOutputter();
         try (FileWriter writer = new FileWriter(path)) {
+            fmt.setFormat(Format.getPrettyFormat());
             fmt.output(doc, writer);
             res=1;
             writer.flush();
@@ -88,6 +89,7 @@ public class Operaciones {
                node.getChild("Nombre").setText(nom);
                node.getChild("Contra").setText(pass);
                node.getChild("Correo").setText(Correo);
+               xmlout.setFormat(Format.getPrettyFormat());
                xmlout.output(doc,new FileWriter(path));
                xmlout.output(doc,System.out);
                 return 1;

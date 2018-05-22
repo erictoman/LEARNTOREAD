@@ -54,6 +54,7 @@ public class Login extends HttpServlet {
                         String nombre = opera.obtenNombre(Correo, path);
                         String tipo = opera.obtenTipo(Correo, path);
                         sesion.setAttribute("Tipo", tipo);
+                          sesion.setAttribute("CorreoU", Correo);
                         sesion.setAttribute("Nombre", nombre);
                     } catch (JDOMException ex) {
                         Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);

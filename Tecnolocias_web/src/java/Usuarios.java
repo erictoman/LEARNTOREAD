@@ -38,8 +38,12 @@ public class Usuarios extends HttpServlet {
             throws ServletException, IOException{
      response.setContentType("text/html;charset=UTF-8");
       HttpSession sesion = request.getSession();
+        PrintWriter out = response.getWriter();
+      if(sesion.getAttribute("CorreoU")!= null && ((String)sesion.getAttribute("Tipo")).equalsIgnoreCase("Profesor"))
+        {
                 String path = request.getRealPath("/archivo_xml");
                 path=path + "/base.xml";
+                String correo =(String)sesion.getAttribute("CorreoU");
      File xml = new File(path);
        SAXBuilder builder = new SAXBuilder();
       Document doc = null; 
@@ -57,7 +61,7 @@ public class Usuarios extends HttpServlet {
                     return node.getChildText("Rol");
                 }
             }*/
-        PrintWriter out = response.getWriter();
+      
           Element node;
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -70,13 +74,45 @@ public class Usuarios extends HttpServlet {
             out.println("<tr><td>Usuario</td> <td>Tipo</td></tr>");
             for(int i=0; i<lista.size(); i++)
             {
+                
                 node=(Element) lista.get(i);
+                if (!node.getChildText("Correo").equals(correo))
+                {
                 out.println("<tr><td>"+node.getChildText("Correo")+"</td><td>"+node.getChildText("Rol")+" </td> <td><a href='CambiosS?correo="+node.getChildText("Correo")+"'>Cambiar</a></td> <td> <a href='Ban?correo="+node.getChildText("Correo")+"'>Eliminar</a></td> </tr>");
-            }
+                } }
             out.println("</table>");
-            out.println("<h3><a href='add'> Agregar Usuarios </a> </h3>");
+            out.println("<h3><a href='add'> Agregar Usuarios </a> </h3><br/>");
+            out.println("<br/><br/><form action='logout' method='get'>"
+                        + "<input type='submit' value='Salir'>"
+                        + "</form> ");
+            
             out.println("</body>");
             out.println("</html>");
+        }
+      else
+      {
+                out.println("<!DOCTYPE html>");
+                        out.println("<html>");
+                        out.println("<body bgcolor='#A2E375'>");
+                        out.println("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.3/sweetalert2.all.js\"></script>");
+                        out.println("<script>");
+                        out.println(" swal({\n" +
+                                "  title: 'Error',\n" +
+                                "  text: \"Inicia Sesion  !\",\n" +
+                                "  type: 'error',\n" +
+                                "  showCancelButton: false,\n" +
+                                "  confirmButtonColor: '#d33',\n" +
+                                "  cancelButtonColor: '#d33',\n" +
+                                "  confirmButtonText: 'OK'\n" +
+                                "}).then(function (result) {\n" +
+                                "  if (result.value) {\n" +
+                                "   window.location.href=\"index.html\";"+
+                                "  }else{ window.location.href=\"index.html\";}\n" +
+                                "})");
+                        out.println("</script>");
+                        out.println("</body>");
+                        out.println("</html>");
+      }
         
     }
 
