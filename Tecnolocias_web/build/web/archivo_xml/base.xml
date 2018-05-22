@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Sistema>
+
 <Sistema>
   <Usuarios>
     <Usuario>
@@ -15,11 +16,11 @@
       <Correo>rafassassinscreed@gmail.com</Correo>
     </Usuario>
     <Usuario>
-      <Nombre>Humberto</Nombre>
+      <Nombre>Humberto2</Nombre>
       <Contra>123</Contra>
       <Rol>Alumno</Rol>
-      <Correo>beto@gmail.com</Correo>
+      <Correo>beto22x@gmail.com</Correo>
     </Usuario>
-    
   </Usuarios>
 </Sistema>
+

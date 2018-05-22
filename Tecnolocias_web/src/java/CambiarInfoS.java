@@ -55,8 +55,8 @@ public class CambiarInfoS extends HttpServlet {
                         "  confirmButtonText: 'OK'\n" +
                         "}).then(function (result) {\n" +
                         "  if (result.value) {\n" +
-                        "   window.location.href=\"index.html\";"+
-                        "  }else{ window.location.href=\"index.html\";}\n" +
+                        "   window.location.href=\"Usuarios\";"+
+                        "  }else{ window.location.href=\"Usuarios\";}\n" +
                         "})");
                 out.println("</script>");
                 out.println("</body>");
