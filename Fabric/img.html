@@ -1,0 +1,80 @@
+<html>
+  <head>
+	  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/2.2.4/fabric.min.js"></script>
+	  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+	  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
+	  </script>
+  </head>
+  <body>
+    <canvas id="canvas" width="1000" height="1000" style="border: 1px solid #222"></canvas>
+	<br>
+    <button id="botontexto">Añadir texto</button>
+    <script type="text/javascript">
+	var canvas = this.__canvas = new fabric.Canvas('canvas', {
+	    hoverCursor: 'pointer',
+		selection: true
+	});
+
+
+	canvas.on({
+		'object:moving': function(e) {
+			e.target.opacity = 0.5;
+	  	},
+	  		'object:modified': function(e) {
+	    	e.target.opacity = 1;
+		}
+	});
+
+	function retrieveImageFromClipboardAsBlob(pasteEvent, callback){
+		if(pasteEvent.clipboardData == false){
+	        if(typeof(callback) == "function"){
+	            callback(undefined);
+	        }
+	    };
+
+	    var items = pasteEvent.clipboardData.items;
+
+	    if(items == undefined){
+	        if(typeof(callback) == "function"){
+	            callback(undefined);
+	        }
+	    };
+
+	    for (var i = 0; i < items.length; i++) {
+	        if (items[i].type.indexOf("image") == -1) continue;
+	        var blob = items[i].getAsFile();
+	        if(typeof(callback) == "function"){
+	            callback(blob);
+	        }
+	    }
+	}
+
+	window.addEventListener("paste", function(e){
+	    retrieveImageFromClipboardAsBlob(e, function(imageBlob){
+	        if(imageBlob){
+	        	var img = new Image();
+	            img.onload = function(){
+	               var image1 = new fabric.Image(img);
+				      image1.set({
+				            originX: "center", 
+        					originY: "center"
+				      });
+				      canvas.centerObject(image1);
+				      canvas.add(image1);
+				      canvas.renderAll();
+	            };
+	            var URLObj = window.URL || window.webkitURL;
+	            img.src = URLObj.createObjectURL(imageBlob);
+	        }
+	    });
+	}, false);
+	$( "#botontexto" ).click(function() {
+		var txt=new fabric.IText('Escribir texto', { 
+						  fontFamily: 'Roboto',});
+		canvas.add(txt);
+		canvas.centerObject(txt);
+		
+	});
+    </script>
+  </body>
+</html>
