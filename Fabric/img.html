@@ -10,11 +10,11 @@
 	<br>
     <button id="botontexto">Añadir texto</button>
     <script type="text/javascript">
+
 	var canvas = this.__canvas = new fabric.Canvas('canvas', {
 	    hoverCursor: 'pointer',
 		selection: true
 	});
-
 
 	canvas.on({
 		'object:moving': function(e) {
@@ -54,27 +54,51 @@
 	        if(imageBlob){
 	        	var img = new Image();
 	            img.onload = function(){
-	               var image1 = new fabric.Image(img);
-				      image1.set({
+	               	var image1 = new fabric.Image(img);
+				      	image1.set({
 				            originX: "center", 
         					originY: "center"
-				      });
-				      canvas.centerObject(image1);
-				      canvas.add(image1);
-				      canvas.renderAll();
-	            };
+				      	});
+				      	canvas.centerObject(image1);
+				      	canvas.add(image1);
+				      	canvas.renderAll();
+	           		};
 	            var URLObj = window.URL || window.webkitURL;
 	            img.src = URLObj.createObjectURL(imageBlob);
 	        }
 	    });
 	}, false);
+
 	$( "#botontexto" ).click(function() {
 		var txt=new fabric.IText('Escribir texto', { 
 						  fontFamily: 'Roboto',});
 		canvas.add(txt);
 		canvas.centerObject(txt);
-		
 	});
+
+	$( "html" ).keypress(function(e) {
+  		if(e.which==127){
+  			canvas.remove(canvas.getActiveObject());
+  		}
+	});
+	$("canvas").on('dragover', function(e) {e.preventDefault();return false;});
+		$("canvas").on('drop', function(e) {
+	    	e.preventDefault();
+	    	e.originalEvent.dataTransfer.items[0].getAsString(function(url){
+	        	var img1 = new Image();
+    			img1.src = url;
+    				img1.onload = function(){
+    					var image1 = new fabric.Image(img1);
+				      	image1.set({
+				            originX: "center",
+        					originY: "center"
+				      	});
+				      	canvas.centerObject(image1);
+				      	canvas.add(image1);
+				      	canvas.renderAll();
+    				}
+				});
+			});
     </script>
   </body>
 </html>
