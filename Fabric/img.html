@@ -124,7 +124,14 @@
 		canvas.add(image1);
 		canvas.renderAll();
 	}
-
+	$("canvas").click(function(e){
+	  var txt = canvas.getActiveObject().text;
+	  Decir(txt);
+	});
+	function Decir(say){
+		document.getElementsByTagName("audio")[0].setAttribute("src", "https://translate.google.com/translate_tts?tl=es-MX&q=" + say + "&client=tw-ob");
+	}
     </script>
+    <audio autoplay src="" class="A"></audio>
   </body>
 </html>
