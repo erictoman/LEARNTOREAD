@@ -1,16 +1,16 @@
 <html>
   <head>
-	  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/2.2.4/fabric.min.js"></script>
-	  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
-	  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
-	  </script>
+	  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/2.2.4/fabric.min.js"></script>
+	  	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+	  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  	<script type="text/javascript">
+	  	</script>
   </head>
   <body>
-    <canvas id="canvas" width="1000" height="1000" style="border: 1px solid #222"></canvas>
+    <canvas id="canvas" width="600" height="600" style="border: 1px solid #222"></canvas>
 	<br>
-    <button id="botontexto">Añadir texto</button>
+    <button id="botontexto">Añadir texto</button> <button id="botonguardar">Guardar</button>
     <script type="text/javascript">
-
 	var canvas = this.__canvas = new fabric.Canvas('canvas', {
 	    hoverCursor: 'pointer',
 		selection: true
@@ -81,24 +81,50 @@
   			canvas.remove(canvas.getActiveObject());
   		}
 	});
+
 	$("canvas").on('dragover', function(e) {e.preventDefault();return false;});
 		$("canvas").on('drop', function(e) {
 	    	e.preventDefault();
+	    		var src=e.originalEvent.dataTransfer.files[0];
+	    	if(src!=null){
+	    		if(src.type.match(/image.*/)){
+					var reader = new FileReader();
+					reader.onload = function(e){
+						var image = new Image();
+						image.src=e.target.result;
+						image.onload=function(){
+							add(image);
+						}
+					};
+					reader.readAsDataURL(src);	
+				}
+			}else{
 	    	e.originalEvent.dataTransfer.items[0].getAsString(function(url){
 	        	var img1 = new Image();
     			img1.src = url;
     				img1.onload = function(){
-    					var image1 = new fabric.Image(img1);
-				      	image1.set({
-				            originX: "center",
-        					originY: "center"
-				      	});
-				      	canvas.centerObject(image1);
-				      	canvas.add(image1);
-				      	canvas.renderAll();
+    					add(img1);
     				}
 				});
+	    	}
 			});
+
+	$("#botonguardar").click(function() {
+		var sv=JSON.stringify(canvas);
+		console.log(sv);
+	});
+
+	function add(img1){
+		var image1 = new fabric.Image(img1);
+		image1.set({
+			originX: "center",
+        	originY: "center"
+		});
+		canvas.centerObject(image1);
+		canvas.add(image1);
+		canvas.renderAll();
+	}
+
     </script>
   </body>
 </html>
