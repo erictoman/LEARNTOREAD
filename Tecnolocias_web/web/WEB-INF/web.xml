@@ -48,6 +48,23 @@
         <servlet-name>Ban</servlet-name>
         <servlet-class>Ban</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Subir</servlet-name>
+        <servlet-class>Subir</servlet-class>
+        <multipart-config>
+            <max-file-size>10485760</max-file-size>
+            <max-request-size>20971520</max-request-size>
+            <file-size-threshold>5242880</file-size-threshold>
+        </multipart-config>
+    </servlet>
+    <servlet>
+        <servlet-name>Lectura</servlet-name>
+        <servlet-class>Lectura</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MisImagenes</servlet-name>
+        <servlet-class>MisImagenes</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -95,6 +112,18 @@
     <servlet-mapping>
         <servlet-name>Ban</servlet-name>
         <url-pattern>/Ban</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Subir</servlet-name>
+        <url-pattern>/Subir</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Lectura</servlet-name>
+        <url-pattern>/Lectura</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MisImagenes</servlet-name>
+        <url-pattern>/MisImagenes</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

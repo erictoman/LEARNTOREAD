@@ -24,7 +24,7 @@ public class add extends HttpServlet {
         HttpSession sesion = request.getSession();
           response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        if(sesion.getAttribute("CorreoU")!= null && ((String)sesion.getAttribute("Tipo")).equalsIgnoreCase("Profesor"))
+        if(sesion.getAttribute("CorreoU")!= null && ((String)sesion.getAttribute("Tipo")).equalsIgnoreCase("Administrador"))
         {
         
         if(request.getParameter("altas")!=null)

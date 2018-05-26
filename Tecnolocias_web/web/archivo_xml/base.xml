@@ -12,7 +12,7 @@
             <Usuario>
                 <Nombre>Eric Uriel Trejo Trejo</Nombre>
                 <Contra>123123123</Contra>
-                <Rol>Profesor</Rol>
+                <Rol>Administrador</Rol>
                 <Correo>ericto117@gmail.com</Correo>
             </Usuario>
 	</Usuarios>

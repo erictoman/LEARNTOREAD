@@ -22,7 +22,7 @@ public class index extends HttpServlet {
             response.setContentType("text/html; charset=UTF-8");
             PrintWriter out = response.getWriter();
             if(sesion.getAttribute("Correo")!=null){
-                if(sesion.getAttribute("Tipo").equals("Profesor")){
+                if(sesion.getAttribute("Tipo").equals("Administrador")){
                     out.println("<!DOCTYPE html>\n" +
             "\n" +
             "<html>\n" +
@@ -42,11 +42,24 @@ public class index extends HttpServlet {
                 }
                 else
                 {
+                    if(sesion.getAttribute("Tipo").equals("Profesor"))
+                    {
                 out.print("<H1>Bienvenido "+sesion.getAttribute("Tipo")+" "+sesion.getAttribute("Nombre")+ "</H1>"
                         + "<a href=\"Cambios\">Cambiar informacion de cuenta</a>");
                 out.println("<br/><br/><form action='logout' method='get'>"
                         + "<input type='submit' value='Salir'>"
                         + "</form> ");
+                 out.println("<br/><br/> <a href='Lectura'>Crear Lectura </a>  ");
+                  out.println("<br/><br/> <form action='Subir' method='post'> <input type='submit' name='forma' value='SubirImagen' /></form>    ");
+                    }else // sesion del ALUMNO 
+                    {
+                         out.print("<H1>Bienvenido "+sesion.getAttribute("Tipo")+" "+sesion.getAttribute("Nombre")+ "</H1>"
+                        + "<a href=\"Cambios\">Cambiar informacion de cuenta</a>");
+                out.println("<br/><br/><form action='logout' method='get'>"
+                        + "<input type='submit' value='Salir'>"
+                        + "</form> ");
+                        
+                    }
                 }
                 
             }else{

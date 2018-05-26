@@ -39,7 +39,7 @@ public class Usuarios extends HttpServlet {
      response.setContentType("text/html;charset=UTF-8");
       HttpSession sesion = request.getSession();
         PrintWriter out = response.getWriter();
-      if(sesion.getAttribute("CorreoU")!= null && ((String)sesion.getAttribute("Tipo")).equalsIgnoreCase("Profesor"))
+      if(sesion.getAttribute("CorreoU")!= null && ((String)sesion.getAttribute("Tipo")).equalsIgnoreCase("Administrador"))
         {
                 String path = request.getRealPath("/archivo_xml");
                 path=path + "/base.xml";

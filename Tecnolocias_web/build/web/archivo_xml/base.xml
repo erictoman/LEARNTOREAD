@@ -6,20 +6,20 @@
     <Usuario>
       <Nombre>Eric Uriel Trejo Trejo</Nombre>
       <Contra>123123123</Contra>
-      <Rol>Profesor</Rol>
+      <Rol>Administrador</Rol>
       <Correo>ericto117@gmail.com</Correo>
     </Usuario>
     <Usuario>
-      <Nombre>Rafael Hernandez</Nombre>
+      <Nombre>Rafael Hernandez Ruiz</Nombre>
       <Contra>1234</Contra>
       <Rol>Profesor</Rol>
       <Correo>rafassassinscreed@gmail.com</Correo>
     </Usuario>
     <Usuario>
-      <Nombre>Humberto2</Nombre>
-      <Contra>123</Contra>
-      <Rol>Alumno</Rol>
-      <Correo>beto22x@gmail.com</Correo>
+      <Nombre>Arturo Rivas</Nombre>
+      <Contra>1234</Contra>
+      <Rol>Profesor</Rol>
+      <Correo>art@gmail.com</Correo>
     </Usuario>
   </Usuarios>
 </Sistema>
