@@ -4,134 +4,135 @@
 	  	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
 	  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	  	<script type="text/javascript">
+	  	$(document).ready(function(){
+	  		var canvas = this.__canvas = new fabric.Canvas('canvas', {
+			    hoverCursor: 'pointer',
+				selection: true
+			});
+
+			canvas.on({
+				'object:moving': function(e) {
+					e.target.opacity = 0.5;
+			  	},
+			  		'object:modified': function(e) {
+			    	e.target.opacity = 1;
+				}
+			});
+
+			function retrieveImageFromClipboardAsBlob(pasteEvent, callback){
+				if(pasteEvent.clipboardData == false){
+			        if(typeof(callback) == "function"){
+			            callback(undefined);
+			        }
+			    };
+
+			    var items = pasteEvent.clipboardData.items;
+
+			    if(items == undefined){
+			        if(typeof(callback) == "function"){
+			            callback(undefined);
+			        }
+			    };
+
+			    for (var i = 0; i < items.length; i++) {
+			        if (items[i].type.indexOf("image") == -1) continue;
+			        var blob = items[i].getAsFile();
+			        if(typeof(callback) == "function"){
+			            callback(blob);
+			        }
+			    }
+			}
+
+			window.addEventListener("paste", function(e){
+			    retrieveImageFromClipboardAsBlob(e, function(imageBlob){
+			        if(imageBlob){
+			        	var img = new Image();
+			            img.onload = function(){
+			               	var image1 = new fabric.Image(img);
+						      	image1.set({
+						            originX: "center", 
+		        					originY: "center"
+						      	});
+						      	canvas.centerObject(image1);
+						      	canvas.add(image1);
+						      	canvas.renderAll();
+			           		};
+			            var URLObj = window.URL || window.webkitURL;
+			            img.src = URLObj.createObjectURL(imageBlob);
+			        }
+			    });
+			}, false);
+
+			$( "#botontexto" ).click(function() {
+				var txt=new fabric.IText('Escribir texto', { 
+								  fontFamily: 'Roboto',});
+				canvas.add(txt);
+				canvas.centerObject(txt);
+			});
+
+			$( "html" ).keypress(function(e) {
+		  		if(e.which==127){
+		  			canvas.remove(canvas.getActiveObject());
+		  		}
+			});
+
+			$("canvas").on('dragover', function(e) {e.preventDefault();return false;});
+				$("canvas").on('drop', function(e) {
+			    	e.preventDefault();
+			    		var src=e.originalEvent.dataTransfer.files[0];
+			    	if(src!=null){
+			    		if(src.type.match(/image.*/)){
+							var reader = new FileReader();
+							reader.onload = function(e){
+								var image = new Image();
+								image.src=e.target.result;
+								image.onload=function(){
+									add(image);
+								}
+							};
+							reader.readAsDataURL(src);	
+						}
+					}else{
+			    	e.originalEvent.dataTransfer.items[0].getAsString(function(url){
+			        	var img1 = new Image();
+		    			img1.src = url;
+		    				img1.onload = function(){
+		    					add(img1);
+		    				}
+						});
+			    	}
+					});
+
+			$("#botonguardar").click(function() {
+				var sv=JSON.stringify(canvas);
+				console.log(sv);
+			});
+
+			function add(img1){
+				var image1 = new fabric.Image(img1);
+				image1.set({
+					originX: "center",
+		        	originY: "center"
+				});
+				canvas.centerObject(image1);
+				canvas.add(image1);
+				canvas.renderAll();
+			}
+			$("canvas").click(function(e){
+			  var txt = canvas.getActiveObject().text;
+			  Decir(txt);
+			});
+
+			function Decir(say){
+				document.getElementsByTagName("audio")[0].setAttribute("src", "https://translate.google.com/translate_tts?tl=es-MX&q=" + say + "&client=tw-ob");
+			}
+	  	});
 	  	</script>
   </head>
   <body>
     <canvas id="canvas" width="600" height="600" style="border: 1px solid #222"></canvas>
 	<br>
     <button id="botontexto">Añadir texto</button> <button id="botonguardar">Guardar</button>
-    <script type="text/javascript">
-	var canvas = this.__canvas = new fabric.Canvas('canvas', {
-	    hoverCursor: 'pointer',
-		selection: true
-	});
-
-	canvas.on({
-		'object:moving': function(e) {
-			e.target.opacity = 0.5;
-	  	},
-	  		'object:modified': function(e) {
-	    	e.target.opacity = 1;
-		}
-	});
-
-	function retrieveImageFromClipboardAsBlob(pasteEvent, callback){
-		if(pasteEvent.clipboardData == false){
-	        if(typeof(callback) == "function"){
-	            callback(undefined);
-	        }
-	    };
-
-	    var items = pasteEvent.clipboardData.items;
-
-	    if(items == undefined){
-	        if(typeof(callback) == "function"){
-	            callback(undefined);
-	        }
-	    };
-
-	    for (var i = 0; i < items.length; i++) {
-	        if (items[i].type.indexOf("image") == -1) continue;
-	        var blob = items[i].getAsFile();
-	        if(typeof(callback) == "function"){
-	            callback(blob);
-	        }
-	    }
-	}
-
-	window.addEventListener("paste", function(e){
-	    retrieveImageFromClipboardAsBlob(e, function(imageBlob){
-	        if(imageBlob){
-	        	var img = new Image();
-	            img.onload = function(){
-	               	var image1 = new fabric.Image(img);
-				      	image1.set({
-				            originX: "center", 
-        					originY: "center"
-				      	});
-				      	canvas.centerObject(image1);
-				      	canvas.add(image1);
-				      	canvas.renderAll();
-	           		};
-	            var URLObj = window.URL || window.webkitURL;
-	            img.src = URLObj.createObjectURL(imageBlob);
-	        }
-	    });
-	}, false);
-
-	$( "#botontexto" ).click(function() {
-		var txt=new fabric.IText('Escribir texto', { 
-						  fontFamily: 'Roboto',});
-		canvas.add(txt);
-		canvas.centerObject(txt);
-	});
-
-	$( "html" ).keypress(function(e) {
-  		if(e.which==127){
-  			canvas.remove(canvas.getActiveObject());
-  		}
-	});
-
-	$("canvas").on('dragover', function(e) {e.preventDefault();return false;});
-		$("canvas").on('drop', function(e) {
-	    	e.preventDefault();
-	    		var src=e.originalEvent.dataTransfer.files[0];
-	    	if(src!=null){
-	    		if(src.type.match(/image.*/)){
-					var reader = new FileReader();
-					reader.onload = function(e){
-						var image = new Image();
-						image.src=e.target.result;
-						image.onload=function(){
-							add(image);
-						}
-					};
-					reader.readAsDataURL(src);	
-				}
-			}else{
-	    	e.originalEvent.dataTransfer.items[0].getAsString(function(url){
-	        	var img1 = new Image();
-    			img1.src = url;
-    				img1.onload = function(){
-    					add(img1);
-    				}
-				});
-	    	}
-			});
-
-	$("#botonguardar").click(function() {
-		var sv=JSON.stringify(canvas);
-		console.log(sv);
-	});
-
-	function add(img1){
-		var image1 = new fabric.Image(img1);
-		image1.set({
-			originX: "center",
-        	originY: "center"
-		});
-		canvas.centerObject(image1);
-		canvas.add(image1);
-		canvas.renderAll();
-	}
-	$("canvas").click(function(e){
-	  var txt = canvas.getActiveObject().text;
-	  Decir(txt);
-	});
-	function Decir(say){
-		document.getElementsByTagName("audio")[0].setAttribute("src", "https://translate.google.com/translate_tts?tl=es-MX&q=" + say + "&client=tw-ob");
-	}
-    </script>
     <audio autoplay src="" class="A"></audio>
   </body>
 </html>
