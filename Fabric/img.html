@@ -3,6 +3,7 @@
 	  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/2.2.4/fabric.min.js"></script>
 	  	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
 	  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  	<script src="http://code.responsivevoice.org/responsivevoice.js"></script>
 	  	<script type="text/javascript">
 	  	$(document).ready(function(){
 	  		var canvas = this.__canvas = new fabric.Canvas('canvas', {
@@ -124,7 +125,9 @@
 			});
 
 			function Decir(say){
-				document.getElementsByTagName("audio")[0].setAttribute("src", "https://translate.google.com/translate_tts?tl=es-MX&q=" + say + "&client=tw-ob");
+				var voicelist = responsiveVoice.getVoices();
+				console.log(voicelist);
+				responsiveVoice.speak(say,"Spanish Latin American Female");
 			}
 	  	});
 	  	</script>

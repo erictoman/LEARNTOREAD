@@ -10,16 +10,10 @@
       <Correo>ericto117@gmail.com</Correo>
     </Usuario>
     <Usuario>
-      <Nombre>Rafael Hernandez Ruiz</Nombre>
-      <Contra>1234</Contra>
+      <Nombre>Eric</Nombre>
+      <Contra>123123</Contra>
       <Rol>Profesor</Rol>
-      <Correo>rafassassinscreed@gmail.com</Correo>
-    </Usuario>
-    <Usuario>
-      <Nombre>Arturo Rivas</Nombre>
-      <Contra>1234</Contra>
-      <Rol>Profesor</Rol>
-      <Correo>art@gmail.com</Correo>
+      <Correo>coco@gmail.com</Correo>
     </Usuario>
   </Usuarios>
 </Sistema>
