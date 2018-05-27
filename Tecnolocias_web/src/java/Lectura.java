@@ -22,11 +22,12 @@ public class Lectura extends HttpServlet {
             throws ServletException, IOException {
          response.setContentType("text/html;charset=UTF-8");
        PrintWriter out = response.getWriter();
-        out.println("<html>\n" +
+       out.print("<html>\n" +
 "  <head>\n" +
 "	  	<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/fabric.js/2.2.4/fabric.min.js\"></script>\n" +
 "	  	<script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js\"></script>\n" +
 "	  	<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n" +
+"	  	<script src=\"http://code.responsivevoice.org/responsivevoice.js\"></script>\n" +
 "	  	<script type=\"text/javascript\">\n" +
 "	  	$(document).ready(function(){\n" +
 "	  		var canvas = this.__canvas = new fabric.Canvas('canvas', {\n" +
@@ -148,7 +149,8 @@ public class Lectura extends HttpServlet {
 "			});\n" +
 "\n" +
 "			function Decir(say){\n" +
-"				document.getElementsByTagName(\"audio\")[0].setAttribute(\"src\", \"https://translate.google.com/translate_tts?tl=es-MX&q=\" + say + \"&client=tw-ob\");\n" +
+"				var voicelist = responsiveVoice.getVoices();\n" +
+"				responsiveVoice.speak(say,\"Spanish Latin American Female\");\n" +
 "			}\n" +
 "	  	});\n" +
 "	  	</script>\n" +
@@ -162,7 +164,4 @@ public class Lectura extends HttpServlet {
 "  </body>\n" +
 "</html>");
     }
-
-
-
 }
