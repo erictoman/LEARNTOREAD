@@ -36,7 +36,8 @@ public class Lectura extends HttpServlet {
 "    <button id=\"botontexto\">Añadir texto</button> <button id=\"botonguardar\">Guardar</button>\n" +
 "    <audio autoplay src=\"\" class=\"A\"></audio>\n" +
 "	<a href=\"MisImagenes\" target=\"_blank\"><input type='button' value='Imagenes de mi biblioteca'/></a>\n" +
-"  </body>\n" +
+" <br/> <form  action='Save' method='get'> <input type='text' name='nom' placeholder='Nombre de la pagina' /><input type='submit'/> </form> "
+               + "  </body>\n" +
 "</html>");
     }
 }

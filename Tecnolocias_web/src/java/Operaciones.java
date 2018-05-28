@@ -172,4 +172,34 @@ public class Operaciones {
        }
        return 0;
     }
+    public int Serial(String Correo , String Nombre , String Serial , String path) throws IOException
+    {
+        int res=0;
+         Document doc = new Document();
+        try {
+            File fXmlFile = new File(path);
+            SAXBuilder builder = new SAXBuilder();
+            doc=builder.build(fXmlFile);
+        }catch(JDOMException | IOException e ){
+              System.out.println("" + e.getMessage());
+        }
+        Element Historia = new Element ("Historia");
+        Element Nom= new Element ("NombreH");
+        Element Serializado = new Element("Serial");
+      
+        Nom.setText(Nombre);
+        Serializado.setText(Serial);
+        Historia.setAttribute("Creador", Correo);
+        Historia.addContent(Nom);
+        Historia.addContent(Serializado);
+        doc.getRootElement().getChild("Historias").addContent(Historia);
+        XMLOutputter fmt = new XMLOutputter();
+        try (FileWriter writer = new FileWriter(path)) {
+            fmt.setFormat(Format.getPrettyFormat());
+            fmt.output(doc, writer);
+            res=1;
+            writer.flush();
+        }
+        return res;
+    }
 }

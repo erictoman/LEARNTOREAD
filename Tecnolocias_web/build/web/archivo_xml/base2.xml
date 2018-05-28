@@ -1,0 +1,48 @@
+<Sistema>
+  <Usuarios>
+    <Usuario>
+      <Nombre>Eric Uriel Trejo Trejo</Nombre>
+      <Contra>123123123</Contra>
+      <Rol>Administrador</Rol>
+      <Correo>ericto117@gmail.com</Correo>
+    </Usuario>
+    <Usuario>
+      <Nombre>Eric</Nombre>
+      <Contra>123123</Contra>
+      <Rol>Profesor</Rol>
+      <Correo>coco@gmail.com</Correo>
+    </Usuario>
+    <Usuario>
+      <Nombre>Rafael Hernandez</Nombre>
+      <Contra>1234</Contra>
+      <Rol>Profesor</Rol>
+      <Correo>rafassassinscreed@gmail.com</Correo>
+    </Usuario>
+  </Usuarios>
+  
+  <Historias>
+	<Historia profesor='CorreoP' grupo='A' nombre='nombre'>
+		<parte num='1'>
+			<serializacion></serializacion>
+		</parte>
+		<parte num='2'>
+			<serializacion></serializacion>
+		</parte>
+		<parte num='n'>
+			<serializacion></serializacion>
+		</parte>
+	</Historia>
+   <Historia profesor='CorreoP' grupo='X' nombre='nombre2'>
+   <parte num='1'>
+			<serializacion></serializacion>
+		</parte>
+		<parte num='2'>
+			<serializacion></serializacion>
+		</parte>
+		<parte num='n'>
+			<serializacion></serializacion>
+		</parte>
+  
+	</Historia>
+  </Historias>
+</Sistema>

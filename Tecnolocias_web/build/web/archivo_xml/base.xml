@@ -15,6 +15,36 @@
       <Rol>Profesor</Rol>
       <Correo>coco@gmail.com</Correo>
     </Usuario>
+    <Usuario>
+      <Nombre>Rafael Hernandez</Nombre>
+      <Contra>1234</Contra>
+      <Rol>Profesor</Rol>
+      <Correo>rafassassinscreed@gmail.com</Correo>
+    </Usuario>
+    <Usuario>
+      <Nombre>Rafael Hernandez Ruiz</Nombre>
+      <Contra>1234</Contra>
+      <Rol>Profesor</Rol>
+      <Correo>rafa@gmail.com</Correo>
+    </Usuario>
   </Usuarios>
+  <Historias>
+    <Historia Creador="rafassassinscreed@gmail.com">
+      <NombreH>Prueba</NombreH>
+      <Serial>Prueba</Serial>
+    </Historia>
+    <Historia Creador="rafassassinscreed@gmail.com">
+      <NombreH>prueba2</NombreH>
+      <Serial>Prueba</Serial>
+    </Historia>
+    <Historia Creador="rafassassinscreed@gmail.com">
+      <NombreH>Prueba3</NombreH>
+      <Serial>Prueba</Serial>
+    </Historia>
+    <Historia Creador="rafa@gmail.com">
+      <NombreH>prueba_otroUsuario</NombreH>
+      <Serial>Prueba</Serial>
+    </Historia>
+  </Historias>
 </Sistema>
 
