@@ -24,7 +24,7 @@ public class Lectura extends HttpServlet {
             throws ServletException, IOException {
          response.setContentType("text/html;charset=UTF-8");
        PrintWriter out = response.getWriter();
-       out.print("<html>\n" +
+       out.println("<html>\n" +
 "  	<head>\n" +
 "	  	<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/fabric.js/2.2.4/fabric.min.js\"></script>\n" +
 "	  	<script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js\"></script>\n" +
@@ -32,8 +32,9 @@ public class Lectura extends HttpServlet {
 "	  	<script src=\"http://code.responsivevoice.org/responsivevoice.js\"></script>\n" +
 "	  	<script src=\"JS/Fun.js\"></script>\n" +
 "	  	<link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/stilo.css\">\n" +
-"  	</head>                                                                                               \n" +
-"  	<body>\n" +
+"  	</head>\n" +
+"  	<body>\n"
+               + "<div id='centeredDiv'><H1>Crea una nueva lectura</H1></div>" +
 "		<div class=\"Container\">\n" +
 "	        <div class=\"Content\">\n" +
 "	            <div class=\"Wrapper\">\n" +
@@ -52,28 +53,22 @@ public class Lectura extends HttpServlet {
 "							<button id=\"botonrecuperar\">Recuperar</button>\n" +
 "						</div>\n" +
 "	                </div>\n" +
-"	                <div class=\"LeftContent\" id=\"over\">\n" );
-        out.println("<h1>Arrastra las imagenes de tu galeria a tu Lectura </h1>");
-                  
-        
-      
-           HttpSession sesion = request.getSession();
+"	                <div class=\"LeftContent\" id=\"over\">\n");
+	HttpSession sesion = request.getSession();
         String path=request.getRealPath("/Fotos");
-  File dir = new File(path); //La clase file tiene 3 constructores  File (String path).  Crea una nueva instancia de tipo file  convirtiendo la cadena de nombre de ruta dada en una ruta de acceso abstracta.
+        File dir = new File(path); //La clase file tiene 3 constructores  File (String path).  Crea una nueva instancia de tipo file  convirtiendo la cadena de nombre de ruta dada en una ruta de acceso abstracta.
         String[] ficheros = dir.list();
         int p= ficheros.length;
         int index=0;
-      for(int i =0; i<p ; i++)
-      {
-          index=ficheros[i].indexOf((String)sesion.getAttribute("CorreoU"));
-          if(index!=-1)
-          {
+        for(int i =0; i<p ; i++)
+        {
+            index=ficheros[i].indexOf((String)sesion.getAttribute("CorreoU"));
+            if(index!=-1)
+            {
               out.println("<img src='Fotos/"+ficheros[i]+"' with='100' height='100'/> <br/> <br/>");
-          }
-      }
-  
-        out.println(
-"	                </div>\n" +
+            }
+        }           	
+out.println("	                </div>\n" +
 "	            </div>\n" +
 "	        </div>\n" +
 "    	</div>\n" +
