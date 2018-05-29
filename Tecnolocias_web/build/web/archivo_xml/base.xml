@@ -33,5 +33,10 @@
       <NombreH>prueba 1</NombreH>
       <Serial>Prueba</Serial>
     </Historia>
+    <Historia Creador="rafassassinscreed@gmail.com">
+      <NombreH>prueba1</NombreH>
+      <Serial>{"version":"2.2.4","objects":[]}</Serial>
+    </Historia>
   </Historias>
 </Sistema>
+
