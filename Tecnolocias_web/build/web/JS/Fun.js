@@ -128,7 +128,10 @@ $(document).ready(function(){
 			  var txt = canvas.getActiveObject().text;
 			  Decir(txt);
 			});
-
+                        var nsn = $('#cVV').val();
+                        if(nsn!==""){
+                            canvas.loadFromJSON(nsn);
+                        }
 			function Decir(say){
 				var voicelist = responsiveVoice.getVoices();
 				responsiveVoice.speak(say,"Spanish Latin American Female");

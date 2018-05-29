@@ -222,11 +222,9 @@ public class Operaciones {
     }
     public String obtenerS(String correo, String nom , String path) throws JDOMException, IOException
     {
-        String ser="";
-         
+       String ser="";
        File xml = new File(path);
        SAXBuilder builder = new SAXBuilder();
-       
        Document doc = (Document) builder.build(xml);
        Element rootnode = doc.getRootElement();
        Element Historia = rootnode.getChild("Historias");
