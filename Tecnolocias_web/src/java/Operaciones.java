@@ -172,6 +172,24 @@ public class Operaciones {
        }
        return 0;
     }
+     public int checaReg2(String Correo,String path , String Nombre) throws JDOMException, IOException
+    {
+       File xml = new File(path);
+       SAXBuilder builder = new SAXBuilder();
+       
+       Document doc = (Document) builder.build(xml);
+       Element rootnode = doc.getRootElement();
+       Element Historia = rootnode.getChild("Historias");
+       List lista = Historia.getChildren("Historia");
+           for(int i =0;i<lista.size();i++){
+                Element node = (Element) lista.get(i);
+                System.out.println(node.getChildText("Correo"));
+                if(node.getChildText("NombreH").equals(Nombre) && node.getAttributeValue("Creador").equals(Correo)){
+                    return 1;
+                }
+            }
+           return 0;
+    }
     public int Serial(String Correo , String Nombre , String Serial , String path) throws IOException
     {
         int res=0;

@@ -6,11 +6,14 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.jdom.JDOMException;
 
 /**
  *
@@ -32,7 +35,15 @@ public class Save extends HttpServlet {
         Operaciones ope= new Operaciones();
          String path = request.getRealPath("archivo_xml");
             path=path + "/base.xml";
-                ope.Serial(Correo, nom, Serializado ,path);
+            int res=0;
+        try {
+            res= ope.checaReg2(Correo, path, nom);
+        } catch (JDOMException ex) {
+            Logger.getLogger(Save.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(res==0)
+        {
+        ope.Serial(Correo, nom, Serializado ,path);
                      out.println("<!DOCTYPE html>");
                         out.println("<html>");
                         out.println("<body bgcolor='#A2E375'>");
@@ -54,6 +65,11 @@ public class Save extends HttpServlet {
                         out.println("</script>");
                         out.println("</body>");
                         out.println("</html>");
+        }
+        else
+        {
+            response.sendError(res);
+        }
     
     }
 
