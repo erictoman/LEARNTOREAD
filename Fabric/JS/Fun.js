@@ -110,6 +110,10 @@ $(document).ready(function(){
 				});
 			});
 			
+			$("#botonrecuperar").click(function() {
+				canvas.loadFromJSON($('#cVV').val());
+			});
+			
 			$("#botoneliminar").click(function() {
 				canvas.remove(canvas.getActiveObject());
 			});
