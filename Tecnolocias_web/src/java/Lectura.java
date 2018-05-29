@@ -4,12 +4,14 @@
  * and open the template in the editor.
  */
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -50,27 +52,27 @@ public class Lectura extends HttpServlet {
 "							<button id=\"botonrecuperar\">Recuperar</button>\n" +
 "						</div>\n" +
 "	                </div>\n" +
-"	                <div class=\"LeftContent\" id=\"over\">\n" +
-"	                	<img src=\"https://www.anipedia.net/imagenes/donde-viven-los-gatos.jpg\" height=\"150px\" width=\"250px\"/>\n" +
-"				    	<br>\n" +
-"				    	<img src=\"https://www.anipedia.net/imagenes/donde-viven-los-gatos.jpg\" height=\"150px\" width=\"250px\"/>\n" +
-"				    	<br>\n" +
-"				    	<img src=\"https://www.anipedia.net/imagenes/donde-viven-los-gatos.jpg\" height=\"150px\" width=\"250px\"/>\n" +
-"				    	<br>\n" +
-"				    	<img src=\"https://www.anipedia.net/imagenes/donde-viven-los-gatos.jpg\" height=\"150px\" width=\"250px\"/>\n" +
-"				    	<br>\n" +
-"				    	<img src=\"https://www.anipedia.net/imagenes/donde-viven-los-gatos.jpg\" height=\"150px\" width=\"250px\"/>\n" +
-"				    	<br>\n" +
-"				    	<img src=\"https://www.anipedia.net/imagenes/donde-viven-los-gatos.jpg\" height=\"150px\" width=\"250px\"/>\n" +
-"				    	<br>\n" +
-"				    	<img src=\"https://www.anipedia.net/imagenes/donde-viven-los-gatos.jpg\" height=\"150px\" width=\"250px\"/>\n" +
-"				    	<br>\n" +
-"				    	<img src=\"https://www.anipedia.net/imagenes/donde-viven-los-gatos.jpg\" height=\"150px\" width=\"250px\"/>\n" +
-"				    	<br>\n" +
-"				    	<img src=\"https://www.anipedia.net/imagenes/donde-viven-los-gatos.jpg\" height=\"150px\" width=\"250px\"/>\n" +
-"				    	<br>\n" +
-"				    	<img src=\"https://www.anipedia.net/imagenes/donde-viven-los-gatos.jpg\" height=\"150px\" width=\"250px\"/>\n" +
-"				    	<br>\n" +
+"	                <div class=\"LeftContent\" id=\"over\">\n" );
+        out.println("<h1>Arrastra las imagenes de tu galeria a tu Lectura </h1>");
+                  
+        
+      
+           HttpSession sesion = request.getSession();
+        String path=request.getRealPath("/Fotos");
+  File dir = new File(path); //La clase file tiene 3 constructores  File (String path).  Crea una nueva instancia de tipo file  convirtiendo la cadena de nombre de ruta dada en una ruta de acceso abstracta.
+        String[] ficheros = dir.list();
+        int p= ficheros.length;
+        int index=0;
+      for(int i =0; i<p ; i++)
+      {
+          index=ficheros[i].indexOf((String)sesion.getAttribute("CorreoU"));
+          if(index!=-1)
+          {
+              out.println("<img src='Fotos/"+ficheros[i]+"' with='100' height='100'/> <br/> <br/>");
+          }
+      }
+  
+        out.println(
 "	                </div>\n" +
 "	            </div>\n" +
 "	        </div>\n" +
