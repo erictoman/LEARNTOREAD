@@ -220,4 +220,27 @@ public class Operaciones {
         }
         return res;
     }
+    public String obtenerS(String correo, String nom , String path) throws JDOMException, IOException
+    {
+        String ser="";
+         
+       File xml = new File(path);
+       SAXBuilder builder = new SAXBuilder();
+       
+       Document doc = (Document) builder.build(xml);
+       Element rootnode = doc.getRootElement();
+       Element Historia = rootnode.getChild("Historias");
+       List lista = Historia.getChildren("Historia");
+           for(int i =0;i<lista.size();i++){
+                Element node = (Element) lista.get(i);
+                System.out.println(node.getChildText("Correo"));
+                if(node.getChildText("NombreH").equals(nom) && node.getAttributeValue("Creador").equals(correo)){
+                    return node.getChildText("Serial");
+                }
+            }
+     
+        
+        
+        return ser;
+    }
 }
