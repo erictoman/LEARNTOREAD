@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE Sistema>
-
 <Sistema>
   <Usuarios>
     <Usuario>
@@ -21,17 +18,31 @@
       <Rol>Profesor</Rol>
       <Correo>rafassassinscreed@gmail.com</Correo>
     </Usuario>
-    <Usuario>
-      <Nombre>Rafael Hernandez Ruiz</Nombre>
-      <Contra>1234</Contra>
-      <Rol>Profesor</Rol>
-      <Correo>rafa@gmail.com</Correo>
-    </Usuario>
   </Usuarios>
+  
   <Historias>
-    <Historia Creador="rafassassinscreed@gmail.com">
-      <NombreH>prueba 1</NombreH>
-      <Serial>Prueba</Serial>
-    </Historia>
+	<Historia profesor='CorreoP' grupo='A' nombre='nombre'>
+		<parte num='1'>
+			<serializacion></serializacion>
+		</parte>
+		<parte num='2'>
+			<serializacion></serializacion>
+		</parte>
+		<parte num='n'>
+			<serializacion></serializacion>
+		</parte>
+	</Historia>
+   <Historia profesor='CorreoP' grupo='X' nombre='nombre2'>
+   <parte num='1'>
+			<serializacion></serializacion>
+		</parte>
+		<parte num='2'>
+			<serializacion></serializacion>
+		</parte>
+		<parte num='n'>
+			<serializacion></serializacion>
+		</parte>
+  
+	</Historia>
   </Historias>
 </Sistema>

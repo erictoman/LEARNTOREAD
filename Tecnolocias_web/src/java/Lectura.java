@@ -33,11 +33,14 @@ public class Lectura extends HttpServlet {
 "  <body>\n" +
 "    <canvas id=\"canvas\" width=\"600\" height=\"600\" style=\"border: 1px solid #222\"></canvas>\n" +
 "	<br>\n" +
-"    <button id=\"botontexto\">Añadir texto</button> <button id=\"botonguardar\">Guardar</button>\n" +
+"    <button id=\"botontexto\">Añadir texto</button>\n" +
+"	<button id=\"botoneliminar\">Eliminar elemento</button>\n" +
 "    <audio autoplay src=\"\" class=\"A\"></audio>\n" +
 "	<a href=\"MisImagenes\" target=\"_blank\"><input type='button' value='Imagenes de mi biblioteca'/></a>\n" +
-" <br/> <form  action='Save' method='get'> <input type='text' name='nom' placeholder='Nombre de la pagina' /><input type='submit'/> </form> "
-               + "  </body>\n" +
+"	<br><br>\n" +
+"	<input type='text' name='nom' id='nom' placeholder='Nombre de la pagina' />\n" +
+"	<button id=\"botonguardar\">Guardar</button>\n" +
+"  </body>\n" +
 "</html>");
     }
 }

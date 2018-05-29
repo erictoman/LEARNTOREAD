@@ -64,12 +64,6 @@ $(document).ready(function(){
 				canvas.centerObject(txt);
 			});
 
-			$( "html" ).keypress(function(e) {
-		  		if(e.which==127){
-		  			canvas.remove(canvas.getActiveObject());
-		  		}
-			});
-
 			$("canvas").on('dragover', function(e) {e.preventDefault();return false;});
 				$("canvas").on('drop', function(e) {
 			    	e.preventDefault();
@@ -100,6 +94,24 @@ $(document).ready(function(){
 			$("#botonguardar").click(function() {
 				var sv=JSON.stringify(canvas);
 				console.log(sv);
+				$.ajax({
+					url: "Save",
+					type: "get", //send it through get method
+					data: {
+						canvas:sv,
+						nom:$('#nom').val()
+					},
+					success: function(response) {
+						alert("¡GUARDADO!");
+					},
+					error: function(xhr) {
+						alert("Error!");
+					}
+				});
+			});
+			
+			$("#botoneliminar").click(function() {
+				canvas.remove(canvas.getActiveObject());
 			});
 
 			function add(img1){

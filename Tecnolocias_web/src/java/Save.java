@@ -28,7 +28,7 @@ public class Save extends HttpServlet {
         HttpSession sesion = request.getSession();
         String Correo = (String) sesion.getAttribute("CorreoU");
         String nom = request.getParameter("nom");
-        String Serializado="Prueba"; //catman aqui me mandas lo que tengas de serializar el canvas 
+        String Serializado=request.getParameter("canvas"); //catman aqui me mandas lo que tengas de serializar el canvas 
         Operaciones ope= new Operaciones();
          String path = request.getRealPath("archivo_xml");
             path=path + "/base.xml";

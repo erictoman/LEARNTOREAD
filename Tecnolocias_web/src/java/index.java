@@ -49,11 +49,9 @@ public class index extends HttpServlet {
                 out.println("<br/><br/><form action='logout' method='get'>"
                         + "<input type='submit' value='Salir'>"
                         + "</form> ");
-                 
-                 out.println("<br/><br/> <a href='Diagramas'>Lecturas </a>  ");
-                  out.println("<br/><br/> <form action='Subir' method='post'> <input type='submit' name='forma' value='SubirImagen' /></form>    ");
-                    }else // sesion del ALUMNO 
-                    {
+                out.println("<br/><br/> <a href='Diagramas'>Lecturas </a>  ");
+                out.println("<br/><br/> <form action='Subir' method='post'> <input type='submit' name='forma' value='SubirImagen' /></form>    ");
+                    }else{//Sesion alumno
                          out.print("<H1>Bienvenido "+sesion.getAttribute("Tipo")+" "+sesion.getAttribute("Nombre")+ "</H1>"
                         + "<a href=\"Cambios\">Cambiar informacion de cuenta</a>");
                 out.println("<br/><br/><form action='logout' method='get'>"

@@ -68,12 +68,10 @@ public class Diagramas extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Lista de Lecturas</h1>");
-            out.println("<br/><br/> <a href='Lectura'>Crear Lectura </a> <br/> ");
             out.println("<table border='1'>");
             out.println("<tr><td>Usuario</td> <td>Tipo</td></tr>");
             for(int i=0; i<lista.size(); i++)
             {
-                
                 node=(Element) lista.get(i);
                 if (node.getAttributeValue("Creador").equals(correo))
                 {
@@ -83,13 +81,12 @@ public class Diagramas extends HttpServlet {
         }
         catch(Exception e)
         {
-            System.out.println("" + e.getMessage());
+            e.printStackTrace();
         }
-          
+            out.println("<br/><br/> <a href='Lectura'>Crear Lectura </a> <br/> ");
             out.println("<br/><br/><form action='logout' method='get'>"
                         + "<input type='submit' value='Salir'>"
                         + "</form> ");
-            
             out.println("</body>");
             out.println("</html>");
         }
@@ -102,7 +99,7 @@ public class Diagramas extends HttpServlet {
                         out.println("<script>");
                         out.println(" swal({\n" +
                                 "  title: 'Error',\n" +
-                                "  text: \"Inicia Sesion  !\",\n" +
+                                "  text: \"¡Inicia Sesion!\",\n" +
                                 "  type: 'error',\n" +
                                 "  showCancelButton: false,\n" +
                                 "  confirmButtonColor: '#d33',\n" +
