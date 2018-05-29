@@ -48,6 +48,8 @@ public class Diagramas extends HttpServlet {
         } catch (JDOMException ex) {
             Logger.getLogger(Usuarios.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try
+        {
        Element rootnode = doc.getRootElement();
        Element Historias = rootnode.getChild("Historias");
        List lista = Historias.getChildren("Historia");
@@ -78,6 +80,11 @@ public class Diagramas extends HttpServlet {
                 out.println("<tr><td>"+node.getChildText("NombreH")+"</td> <td><a href='CambiosD?correo="+node.getChildText("NombreH")+"'>Cambiar</a></td> <td> <a href='Ban?correo="+node.getChildText("NombreH")+"'>Eliminar</a></td> </tr>");
                 } }
             out.println("</table>");
+        }
+        catch(Exception e)
+        {
+            System.out.println("" + e.getMessage());
+        }
           
             out.println("<br/><br/><form action='logout' method='get'>"
                         + "<input type='submit' value='Salir'>"

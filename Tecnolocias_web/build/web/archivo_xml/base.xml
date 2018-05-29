@@ -30,19 +30,7 @@
   </Usuarios>
   <Historias>
     <Historia Creador="rafassassinscreed@gmail.com">
-      <NombreH>Prueba</NombreH>
-      <Serial>Prueba</Serial>
-    </Historia>
-    <Historia Creador="rafassassinscreed@gmail.com">
-      <NombreH>prueba2</NombreH>
-      <Serial>Prueba</Serial>
-    </Historia>
-    <Historia Creador="rafassassinscreed@gmail.com">
-      <NombreH>Prueba3</NombreH>
-      <Serial>Prueba</Serial>
-    </Historia>
-    <Historia Creador="rafa@gmail.com">
-      <NombreH>prueba_otroUsuario</NombreH>
+      <NombreH>prueba 1</NombreH>
       <Serial>Prueba</Serial>
     </Historia>
   </Historias>
