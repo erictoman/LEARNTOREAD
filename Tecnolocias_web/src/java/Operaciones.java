@@ -266,4 +266,28 @@ public class Operaciones {
        return 0;
         
     }
+    public void Cgrupo (String nom, String num , String path) throws IOException
+    {
+             Document doc = new Document();
+        try {
+            File fXmlFile = new File(path);
+            SAXBuilder builder = new SAXBuilder();
+            doc=builder.build(fXmlFile);
+        }catch(JDOMException | IOException e ){
+              System.out.println("" + e.getMessage());
+        }
+        Element Grupo = new Element ("Grupo");
+        
+      Grupo.setAttribute("num", num);
+      Grupo.setAttribute("profesor", nom);
+     
+        doc.getRootElement().getChild("Grupos").addContent(Grupo);
+        XMLOutputter fmt = new XMLOutputter();
+        try (FileWriter writer = new FileWriter(path)) {
+            fmt.setFormat(Format.getPrettyFormat());
+            fmt.output(doc, writer);
+          
+            writer.flush();
+        }
+    }
 }

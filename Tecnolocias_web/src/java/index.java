@@ -34,7 +34,7 @@ public class index extends HttpServlet {
             "    <body>\n" + "<H1>Bienvenido "+sesion.getAttribute("Tipo") +" "+sesion.getAttribute("Nombre")+"</H1> <br/> <form action='Usuarios' method='get'><input type='submit' value='Control'/> </form> " + 
                    "<br/><br/><form action='logout' method='get'>"
                         + "<input type='submit' value='Salir'>"
-                        + "</form> "+
+                        + "</form> <br/> <a href='Grupo'> Crear grupo  </a> <br/> <a href='Inscribir'>Inscribir alumnos </a> "+
             "    </body>\n" +
             "</html>\n" +
             "");

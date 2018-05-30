@@ -19,37 +19,25 @@ import org.jdom.JDOMException;
  *
  * @author Marcus
  */
-public class Save extends HttpServlet {
+public class CreateG extends HttpServlet {
 
- 
-
-  
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out= response.getWriter();
-        HttpSession sesion = request.getSession();
-        String Correo = (String) sesion.getAttribute("CorreoU");
+    
         String nom = request.getParameter("nom");
-        String Serializado=request.getParameter("canvas"); //catman aqui me mandas lo que tengas de serializar el canvas 
+        String i=request.getParameter("num"); //catman aqui me mandas lo que tengas de serializar el canvas 
         Operaciones ope= new Operaciones();
+        System.out.println("" + i + nom );
          String path = request.getRealPath("archivo_xml");
             path=path + "/base.xml";
-            int res=0;
-        try {
-            res= ope.checaReg2(Correo, path, nom);
-        } catch (JDOMException ex) {
-            Logger.getLogger(Save.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if(res==0)
-        {
-        ope.Serial(Correo, nom, Serializado ,path);
+       
+       
+        ope.Cgrupo(nom, i ,path);
                
-        }
-        else
-        {
-            response.sendError(res);
-        }
+        
+      
     
     }
 

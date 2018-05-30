@@ -81,6 +81,14 @@
         <servlet-name>Editar</servlet-name>
         <servlet-class>Editar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Grupo</servlet-name>
+        <servlet-class>Grupo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateG</servlet-name>
+        <servlet-class>CreateG</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -156,6 +164,14 @@
     <servlet-mapping>
         <servlet-name>Editar</servlet-name>
         <url-pattern>/Editar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Grupo</servlet-name>
+        <url-pattern>/Grupo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateG</servlet-name>
+        <url-pattern>/CreateG</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

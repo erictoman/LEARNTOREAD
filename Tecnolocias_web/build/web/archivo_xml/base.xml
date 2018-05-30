@@ -27,7 +27,19 @@
       <Rol>Profesor</Rol>
       <Correo>rafa@gmail.com</Correo>
     </Usuario>
+    <Usuario>
+      <Nombre>Belem Zarzosa</Nombre>
+      <Contra>1234</Contra>
+      <Rol>Alumno</Rol>
+      <Correo>lokilloxbox.10@gmail.com</Correo>
+    </Usuario>
   </Usuarios>
+  <Grupos>
+    <Grupo num="1" profesor="rafassassinscreed@gmail.com">
+      <NombreA correo="lokilloxbox.10@gmail.com">Belem Zarzosa</NombreA>
+    </Grupo>
+    <Grupo num="2" profesor="coco@gmail.com" />
+  </Grupos>
   <Historias>
     <Historia Creador="rafassassinscreed@gmail.com">
       <NombreH>prueba 1</NombreH>
@@ -51,7 +63,7 @@
     </Historia>
     <Historia Creador="rafassassinscreed@gmail.com">
       <NombreH>alvaro3</NombreH>
-      <Serial>{"version":"2.2.4","objects":[{"type":"image","version":"2.2.4","originX":"center","originY":"center","left":300,"top":300,"width":294,"height":172,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"crossOrigin":"","cropX":0,"cropY":0,"src":"http://localhost:8080/Tecnolocias_web/Fotos/rafassassinscreed@gmail.com3.jpg","filters":[]}]}</Serial>
+      <Serial>{"version":"2.2.4","objects":[{"type":"image","version":"2.2.4","originX":"center","originY":"center","left":204.32,"top":183.39,"width":294,"height":172,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":10,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"crossOrigin":"","cropX":0,"cropY":0,"src":"http://localhost:8080/Tecnolocias_web/Fotos/rafassassinscreed@gmail.com3.jpg","filters":[]}]}</Serial>
     </Historia>
     <Historia Creador="rafassassinscreed@gmail.com">
       <NombreH>prueba x</NombreH>
