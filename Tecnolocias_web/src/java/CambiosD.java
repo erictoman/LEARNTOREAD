@@ -21,13 +21,14 @@ import org.jdom.JDOMException;
  * @author Marcus
  */
 public class CambiosD extends HttpServlet {
-    Operaciones o = new Operaciones();
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        HttpSession sesion = request.getSession();
        String path1 = request.getRealPath("/archivo_xml");
                 path1=path1 + "/base.xml";
+                Operaciones o = new Operaciones();
        response.setContentType("text/html;charset=UTF-8");
        PrintWriter out = response.getWriter();
         try {
@@ -37,7 +38,7 @@ public class CambiosD extends HttpServlet {
                     "	  	<script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js\"></script>\n" +
                     "	  	<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n" +
                     "	  	<script src=\"http://code.responsivevoice.org/responsivevoice.js\"></script>\n" +
-                    "	  	<script src=\"JS/Fun.js\"></script>\n" +
+                    "	  	<script src=\"JS/Fun2.js\"></script>\n" +
                     "	  	<link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/stilo.css\">\n" +
                     "  	</head>\n" +
                     "  	<body>\n"

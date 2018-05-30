@@ -95,7 +95,7 @@ $(document).ready(function(){
 				var sv=JSON.stringify(canvas);
 				console.log(sv);
 				$.ajax({
-					url: "Save",
+					url: "Editar",
 					type: "get", //send it through get method
 					data: {
 						canvas:sv,

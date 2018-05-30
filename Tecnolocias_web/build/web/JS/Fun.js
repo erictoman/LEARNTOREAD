@@ -103,6 +103,7 @@ $(document).ready(function(){
 					},
 					success: function(response) {
 						alert("¡GUARDADO!");
+                                                window.parent.location='Diagramas'
 					},
 					error: function(xhr) {
 						alert("Error!");

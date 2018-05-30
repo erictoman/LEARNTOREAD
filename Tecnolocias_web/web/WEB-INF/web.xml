@@ -77,6 +77,10 @@
         <servlet-name>CambiosD</servlet-name>
         <servlet-class>CambiosD</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Editar</servlet-name>
+        <servlet-class>Editar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -148,6 +152,10 @@
     <servlet-mapping>
         <servlet-name>CambiosD</servlet-name>
         <url-pattern>/CambiosD</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Editar</servlet-name>
+        <url-pattern>/Editar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
