@@ -1,9 +1,11 @@
+//Hasta que el documento que este listo se añaden las funciones. Es callback.
 $(document).ready(function(){
+			//Obtener canvas y convertirlo en tipo fabric
 	  		var canvas = this.__canvas = new fabric.Canvas('canvas', {
 			    hoverCursor: 'pointer',
 				selection: true
 			});
-
+			//Cuando un elemento en el canvas se mueva opacidad cambia
 			canvas.on({
 				'object:moving': function(e) {
 					e.target.opacity = 0.5;
@@ -12,7 +14,7 @@ $(document).ready(function(){
 			    	e.target.opacity = 1;
 				}
 			});
-
+			//Obtiene imagen del portapapeles
 			function retrieveImageFromClipboardAsBlob(pasteEvent, callback){
 				if(pasteEvent.clipboardData == false){
 			        if(typeof(callback) == "function"){
@@ -36,7 +38,7 @@ $(document).ready(function(){
 			        }
 			    }
 			}
-
+			//Captura el evento en la ventana del navegador "pegar" y recupera la imagen del portapapeles
 			window.addEventListener("paste", function(e){
 			    retrieveImageFromClipboardAsBlob(e, function(imageBlob){
 			        if(imageBlob){
@@ -56,14 +58,14 @@ $(document).ready(function(){
 			        }
 			    });
 			}, false);
-
+			//Al dar click en el boton texto se añade un elemento de tipo texto
 			$( "#botontexto" ).click(function() {
 				var txt=new fabric.IText('Escribir texto', { 
 								  fontFamily: 'Roboto',});
 				canvas.add(txt);
 				canvas.centerObject(txt);
 			});
-
+			//Cuando se deja caer una imagen en el canvas esta se convierte en un blob y se añade al canvas
 			$("canvas").on('dragover', function(e) {e.preventDefault();return false;});
 				$("canvas").on('drop', function(e) {
 			    	e.preventDefault();
@@ -90,7 +92,7 @@ $(document).ready(function(){
 						});
 			    	}
 					});
-
+//Al dar clic al boton guardar se convierte el canvas de fabric en su definicion de objeto JSON y se envia a el servidor
 			$("#botonguardar").click(function() {
 				var sv=JSON.stringify(canvas);
 				console.log(sv);
@@ -110,7 +112,7 @@ $(document).ready(function(){
 					}
 				});
 			});
-			
+//Al dar clic en el boton eliminar se toma el elemento que esta activo y es removido del canvas
 			$("#botoneliminar").click(function() {
 				canvas.remove(canvas.getActiveObject());
 			});
@@ -125,6 +127,7 @@ $(document).ready(function(){
 				canvas.add(image1);
 				canvas.renderAll();
 			}
+//Al dar clic en el cambas se obtiene el objeto y en caso de contener texto este se envia a una api TTS.
 			$("canvas").click(function(e){
 			  var txt = canvas.getActiveObject().text;
 			  Decir(txt);
@@ -133,6 +136,7 @@ $(document).ready(function(){
                         if(nsn!==""){
                             canvas.loadFromJSON(nsn);
                         }
+//Se consume una variable de tipo texto y con el api de TTS se envia el recurso a un elemento de audio que se autoreproduce
 			function Decir(say){
 				var voicelist = responsiveVoice.getVoices();
 				responsiveVoice.speak(say,"Spanish Latin American Female");
