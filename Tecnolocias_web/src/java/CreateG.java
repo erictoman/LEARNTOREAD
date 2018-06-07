@@ -29,7 +29,7 @@ public class CreateG extends HttpServlet {
         String nom = request.getParameter("nom");
         String i=request.getParameter("num"); //catman aqui me mandas lo que tengas de serializar el canvas 
         Operaciones ope= new Operaciones();
-        System.out.println("" + i + nom );
+    
          String path = request.getRealPath("archivo_xml");
             path=path + "/base.xml";
        

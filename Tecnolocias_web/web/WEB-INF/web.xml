@@ -89,6 +89,14 @@
         <servlet-name>CreateG</servlet-name>
         <servlet-class>CreateG</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Inscribir</servlet-name>
+        <servlet-class>Inscribir</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Inscripcion</servlet-name>
+        <servlet-class>Inscripcion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -172,6 +180,14 @@
     <servlet-mapping>
         <servlet-name>CreateG</servlet-name>
         <url-pattern>/CreateG</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Inscribir</servlet-name>
+        <url-pattern>/Inscribir</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Inscripcion</servlet-name>
+        <url-pattern>/Inscripcion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

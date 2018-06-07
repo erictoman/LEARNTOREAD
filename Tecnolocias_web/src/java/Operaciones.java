@@ -290,4 +290,51 @@ public class Operaciones {
             writer.flush();
         }
     }
+    public int Inscribir (String correo, String grupo , String path , String nom ) throws IOException
+    {
+        int res=0;
+               Document doc = new Document();
+        try {
+            File fXmlFile = new File(path);
+            SAXBuilder builder = new SAXBuilder();
+            doc=builder.build(fXmlFile);
+        }catch(JDOMException | IOException e ){
+              System.out.println("" + e.getMessage());
+        }
+        Element NombreA = new Element ("NombreA");
+        
+      NombreA.setText(nom);
+      NombreA.setAttribute("correo", correo);
+      List lista=doc.getRootElement().getChild("Grupos").getChildren("Grupo");
+     Element nodo;
+     Element nodo2;
+   
+   
+     
+      XMLOutputter xmlout= new XMLOutputter();
+       for(int i =0;i<lista.size();i++){
+           nodo = (Element) lista.get(i);
+           if(nodo.getAttributeValue("num").equals(grupo)){
+               List lista2=nodo.getChildren("NombreA");
+                 for (int z=0; z<lista2.size() ; z++)
+     {
+         nodo2=(Element) lista2.get(z);
+         if(nodo2.getAttributeValue("correo").equals(correo))
+         {
+             return 0;
+         }
+     }
+     
+              nodo.addContent(NombreA);
+               
+               xmlout.setFormat(Format.getPrettyFormat());
+               xmlout.output(doc,new FileWriter(path));
+               xmlout.output(doc,System.out);
+               return 1;
+           }   
+       }
+        
+        
+        return res;
+    }
 }
