@@ -101,7 +101,8 @@ $(document).ready(function(){
 					type: "get", //send it through get method
 					data: {
 						canvas:sv,
-						nom:$('#nom').val()
+						nom:$('#NombreH').val(),
+                                                num:$('#numero').val()
 					},
 					success: function(response) {
 						alert("¡GUARDADO!");

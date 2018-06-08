@@ -97,6 +97,14 @@
         <servlet-name>Inscripcion</servlet-name>
         <servlet-class>Inscripcion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Historia</servlet-name>
+        <servlet-class>Historia</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HistoriaN</servlet-name>
+        <servlet-class>HistoriaN</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -188,6 +196,14 @@
     <servlet-mapping>
         <servlet-name>Inscripcion</servlet-name>
         <url-pattern>/Inscripcion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Historia</servlet-name>
+        <url-pattern>/Historia</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HistoriaN</servlet-name>
+        <url-pattern>/HistoriaN</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

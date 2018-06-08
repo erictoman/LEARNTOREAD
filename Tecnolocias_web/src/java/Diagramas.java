@@ -59,8 +59,10 @@ public class Diagramas extends HttpServlet {
                     return node.getChildText("Rol");
                 }
             }*/
-      
+        
           Element node;
+          Element node2;
+          List lista2=null;
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -69,13 +71,27 @@ public class Diagramas extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Lista de Lecturas</h1>");
             out.println("<table border='1'>");
-            out.println("<tr><td>Usuario</td> <td>Tipo</td></tr>");
+           
             for(int i=0; i<lista.size(); i++)
             {
                 node=(Element) lista.get(i);
                 if (node.getAttributeValue("Creador").equals(correo))
                 {
-                out.println("<tr><td>"+node.getChildText("NombreH")+"</td> <td><a href='CambiosD?correo="+node.getChildText("NombreH")+"'>Cambiar</a></td> <td> <a href='Ban?correo="+node.getChildText("NombreH")+"'>Eliminar</a></td> </tr>");
+                lista2=node.getChildren("Serial");
+                out.println("<tr><td> Nombre Historia: "+node.getAttributeValue("NombreH")+"</td> <td> <a href='Lectura?NombreH="+node.getAttributeValue("NombreH")+"'>Crear Lectura </a></td></tr>");
+                try
+                {
+                for (int j=0 ; j<lista2.size(); j++)
+                {
+                    node2 = (Element) lista2.get(j);
+                out.println("<tr><td>Numero de la pagina "+node2.getAttributeValue("numS")+"</td> <td><a href='CambiosD?correo="+node.getAttributeValue("NombreH")+"&numS="+node2.getAttributeValue("numS")+" '>Cambiar</a></td> <td> <a href='Ban?correo="+node.getAttributeValue("NombreH")+"&nums="+node2.getAttributeValue("numS")+" '>Eliminar</a></td> </tr>");
+                
+                }
+                }
+                catch(Exception e)
+                {
+                 out.print("<tr><td> No tiene historias </td></tr>");
+                }
                 } }
             out.println("</table>");
         }
@@ -83,7 +99,7 @@ public class Diagramas extends HttpServlet {
         {
             e.printStackTrace();
         }
-            out.println("<br/><br/> <a href='Lectura'>Crear Lectura </a> <br/> ");
+            out.println("<br/><br/> <a href='Historia'>Crear Historia </a> <br/> ");
             out.println("<br/><br/><form action='logout' method='get'>"
                         + "<input type='submit' value='Salir'>"
                         + "</form> ");

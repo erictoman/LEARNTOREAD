@@ -23,6 +23,7 @@ public class Lectura extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          response.setContentType("text/html;charset=UTF-8");
+         String nombreh=request.getParameter("NombreH");
        PrintWriter out = response.getWriter();
        out.println("<html>\n" +
 "  	<head>\n" +
@@ -47,10 +48,11 @@ public class Lectura extends HttpServlet {
 "						    <audio autoplay src=\"\" class=\"A\"></audio>\n" +
 "							<a href=\"MisImagenes\" target=\"_blank\"><input type='button' value='Imagenes de mi biblioteca'/></a>\n" +
 "							<br><br>\n" +
-"							<input type='text' name='nom' id='nom' placeholder='Nombre de la pagina' />\n" +
+
 "							<button id=\"botonguardar\">Guardar</button><br>\n" +
-"							<input type='text' name='nom' id='cVV' value=\"\" />\n" +
-"							<button id=\"botonrecuperar\">Recuperar</button>\n" +
+"<input type='text' name='numero' id='numero' placeholder='Numero de pagina'/>  \n"+
+               "<input type='text' name='NombreH' id='NombreH' value='"+nombreh+"' readonly/>  \n"+
+
 "						</div>\n" +
 "	                </div>\n" +
 "	                <div class=\"LeftContent\" id=\"over\">\n");

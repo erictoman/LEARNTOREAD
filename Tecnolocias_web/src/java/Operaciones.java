@@ -190,10 +190,10 @@ public class Operaciones {
             }
            return 0;
     }
-    public int Serial(String Correo , String Nombre , String Serial , String path) throws IOException
+    public int Serial(String Correo , String Nombre , String Serial , String path , String num) throws IOException
     {
         int res=0;
-         Document doc = new Document();
+               Document doc = new Document();
         try {
             File fXmlFile = new File(path);
             SAXBuilder builder = new SAXBuilder();
@@ -201,26 +201,43 @@ public class Operaciones {
         }catch(JDOMException | IOException e ){
               System.out.println("" + e.getMessage());
         }
-        Element Historia = new Element ("Historia");
-        Element Nom= new Element ("NombreH");
-        Element Serializado = new Element("Serial");
-      
-        Nom.setText(Nombre);
-        Serializado.setText(Serial);
-        Historia.setAttribute("Creador", Correo);
-        Historia.addContent(Nom);
-        Historia.addContent(Serializado);
-        doc.getRootElement().getChild("Historias").addContent(Historia);
-        XMLOutputter fmt = new XMLOutputter();
-        try (FileWriter writer = new FileWriter(path)) {
-            fmt.setFormat(Format.getPrettyFormat());
-            fmt.output(doc, writer);
-            res=1;
-            writer.flush();
-        }
+        Element serie = new Element ("Serial");
+        
+      serie.setText(Serial);
+      serie.setAttribute("numS", num);
+      List lista=doc.getRootElement().getChild("Historias").getChildren("Historia");
+     Element nodo;
+     Element nodo2;
+   
+   
+     
+      XMLOutputter xmlout= new XMLOutputter();
+       for(int i =0;i<lista.size();i++){
+           nodo = (Element) lista.get(i);
+           if(nodo.getAttributeValue("NombreH").equals(Nombre) && nodo.getAttributeValue("Creador").equals(Correo)){
+               List lista2=nodo.getChildren("Serial");
+                 for (int z=0; z<lista2.size() ; z++)
+     {
+         nodo2=(Element) lista2.get(z);
+         if(nodo2.getAttributeValue("numS").equals(num))
+         {
+             return 0;
+         }
+     }
+     
+              nodo.addContent(serie);
+               
+               xmlout.setFormat(Format.getPrettyFormat());
+               xmlout.output(doc,new FileWriter(path));
+               xmlout.output(doc,System.out);
+               return 1;
+           }   
+       }
+        
+        
         return res;
     }
-    public String obtenerS(String correo, String nom , String path) throws JDOMException, IOException
+    public String obtenerS(String correo, String nom , String path , String numS) throws JDOMException, IOException
     {
        String ser="";
        File xml = new File(path);
@@ -231,9 +248,18 @@ public class Operaciones {
        List lista = Historia.getChildren("Historia");
            for(int i =0;i<lista.size();i++){
                 Element node = (Element) lista.get(i);
-                System.out.println(node.getChildText("Correo"));
-                if(node.getChildText("NombreH").equals(nom) && node.getAttributeValue("Creador").equals(correo)){
-                    return node.getChildText("Serial");
+               // System.out.println(node.getChildText("Correo"));
+                if(node.getAttributeValue("NombreH").equals(nom) && node.getAttributeValue("Creador").equals(correo)){
+                    List Lista2 = node.getChildren("Serial");
+                    Element nodo2;
+                    for(int j=0 ; j<lista.size(); j++)
+                    {
+                        nodo2=(Element)Lista2.get(j);
+                        if(nodo2.getAttributeValue("numS").equals(numS))
+                        {
+                            return nodo2.getText();
+                        }
+                    }
                 }
             }
      
@@ -336,5 +362,30 @@ public class Operaciones {
         
         
         return res;
+    }
+    public void CreateH(String correo , String nombre , String path) throws IOException
+    {
+          int res=0;
+        Document doc = new Document();
+        try {
+            File fXmlFile = new File(path);
+            SAXBuilder builder = new SAXBuilder();
+            doc=builder.build(fXmlFile);
+        }catch(JDOMException | IOException e ){
+              System.out.println("" + e.getMessage());
+        }
+        Element Historia = new Element ("Historia");
+        Historia.setAttribute("Creador", correo);
+        Historia.setAttribute("NombreH", nombre);
+       
+        doc.getRootElement().getChild("Historias").addContent(Historia);
+        XMLOutputter fmt = new XMLOutputter();
+        try (FileWriter writer = new FileWriter(path)) {
+            fmt.setFormat(Format.getPrettyFormat());
+            fmt.output(doc, writer);
+            res=1;
+            writer.flush();
+        }
+        
     }
 }

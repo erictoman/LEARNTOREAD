@@ -30,6 +30,7 @@ public class CambiosD extends HttpServlet {
                 path1=path1 + "/base.xml";
                 Operaciones o = new Operaciones();
        response.setContentType("text/html;charset=UTF-8");
+       
        PrintWriter out = response.getWriter();
         try {
             out.println("<html>\n" +
@@ -57,10 +58,15 @@ public class CambiosD extends HttpServlet {
                     "							<br><br>\n" +
                     "							<input type='text' readonly name='nom' id='nom' placeholder='Nombre de la pagina'value='"+request.getParameter("correo")+"' />\n" +
                     "							<button id=\"botonguardar\">Guardar</button><br>\n" +
-                    "							<input type='hidden' name='nom' id='cVV' value='"+o.obtenerS((String) sesion.getAttribute("CorreoU"),request.getParameter("correo"),path1)+"' />\n" +
+                    "							<input type='hidden' name='nom' id='cVV' value='"+o.obtenerS((String) sesion.getAttribute("CorreoU"),request.getParameter("correo"),path1 , request.getParameter("numS"))+"' />\n" +
                             "						</div>\n" +
                             "	                </div>\n" +
                             "	                <div class=\"LeftContent\" id=\"over\">\n");
+        } catch (JDOMException ex) {
+            Logger.getLogger(CambiosD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            System.out.println(""+ o.obtenerS((String) sesion.getAttribute("CorreoU"),request.getParameter("NombreH"),path1 , request.getParameter("numS")));
         } catch (JDOMException ex) {
             Logger.getLogger(CambiosD.class.getName()).log(Level.SEVERE, null, ex);
         }
