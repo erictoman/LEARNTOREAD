@@ -267,11 +267,11 @@ public class Operaciones {
         
         return ser;
     }
-    public int editarS (String correo , String nom , String path ,String serial) throws IOException, JDOMException
+    public int editarS (String correo , String nom , String path ,String serial, String numS) throws IOException, JDOMException
     {
          File xml = new File(path);
        SAXBuilder builder = new SAXBuilder();
-       
+      Element nodo; 
        Document doc = (Document) builder.build(xml);
        Element rootnode = doc.getRootElement();
        Element Historias = rootnode.getChild("Historias");
@@ -279,14 +279,22 @@ public class Operaciones {
        XMLOutputter xmlout= new XMLOutputter();
        for(int i =0;i<lista.size();i++){
            Element node = (Element) lista.get(i);
-           if(node.getChildText("NombreH").equals(nom) && node.getAttributeValue("Creador").equals(correo)){
-               
-               node.getChild("Serial").setText(serial);
-               
+           if(node.getAttributeValue("NombreH").equals(nom) && node.getAttributeValue("Creador").equals(correo)){
+               List lista2 =node.getChildren("Serial");
+               for(int j=0 ; j<lista2.size() ; j++)
+               {
+                  nodo=(Element) lista2.get(j);
+                  if (nodo.getAttributeValue("numS").equals(numS))
+                  {
+                      nodo.setText(serial);
+                        
                xmlout.setFormat(Format.getPrettyFormat());
                xmlout.output(doc,new FileWriter(path));
                xmlout.output(doc,System.out);
                 return 1;
+                  }
+               }
+             
            }   
        }
        return 0;

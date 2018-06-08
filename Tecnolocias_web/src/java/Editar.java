@@ -31,14 +31,16 @@ public class Editar extends HttpServlet {
         PrintWriter out= response.getWriter();
         HttpSession sesion = request.getSession();
         String Correo = (String) sesion.getAttribute("CorreoU");
-        String nom = request.getParameter("nom");
+        String NombreH = request.getParameter("nom");
+        String numS=request.getParameter("num");
         String Serializado=request.getParameter("canvas"); //catman aqui me mandas lo que tengas de serializar el canvas 
         Operaciones ope= new Operaciones();
          String path = request.getRealPath("archivo_xml");
+           System.out.println("" + NombreH + " " + numS + " " +Correo + " " );
             path=path + "/base.xml";
        int res=0;
         try {
-            res=ope.editarS(Correo, nom, path , Serializado);
+            res=ope.editarS(Correo, NombreH, path , Serializado , numS);
         } catch (JDOMException ex) {
             Logger.getLogger(Editar.class.getName()).log(Level.SEVERE, null, ex);
         }

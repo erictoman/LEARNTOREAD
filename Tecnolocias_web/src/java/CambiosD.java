@@ -26,9 +26,12 @@ public class CambiosD extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        HttpSession sesion = request.getSession();
+       String NombreH =request.getParameter("correo");
+       String numS= request.getParameter("numS");
        String path1 = request.getRealPath("/archivo_xml");
                 path1=path1 + "/base.xml";
                 Operaciones o = new Operaciones();
+              
        response.setContentType("text/html;charset=UTF-8");
        
        PrintWriter out = response.getWriter();
@@ -56,7 +59,8 @@ public class CambiosD extends HttpServlet {
                     "						    <audio autoplay src=\"\" class=\"A\"></audio>\n" +
                     "							<a href=\"MisImagenes\" target=\"_blank\"><input type='button' value='Imagenes de mi biblioteca'/></a>\n" +
                     "							<br><br>\n" +
-                    "							<input type='text' readonly name='nom' id='nom' placeholder='Nombre de la pagina'value='"+request.getParameter("correo")+"' />\n" +
+                    "							<input type='text' readonly name='nom' id='nom' placeholder='Nombre de la historia'value='"+request.getParameter("correo")+"' /> </br>\n" +
+                    "                                                   <input type='text' name='num' id='num'  value='"+request.getParameter("numS")+"' readonly />  "+        
                     "							<button id=\"botonguardar\">Guardar</button><br>\n" +
                     "							<input type='hidden' name='nom' id='cVV' value='"+o.obtenerS((String) sesion.getAttribute("CorreoU"),request.getParameter("correo"),path1 , request.getParameter("numS"))+"' />\n" +
                             "						</div>\n" +
@@ -65,11 +69,7 @@ public class CambiosD extends HttpServlet {
         } catch (JDOMException ex) {
             Logger.getLogger(CambiosD.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try {
-            System.out.println(""+ o.obtenerS((String) sesion.getAttribute("CorreoU"),request.getParameter("NombreH"),path1 , request.getParameter("numS")));
-        } catch (JDOMException ex) {
-            Logger.getLogger(CambiosD.class.getName()).log(Level.SEVERE, null, ex);
-        }
+      
         String path=request.getRealPath("/Fotos");
         File dir = new File(path); //La clase file tiene 3 constructores  File (String path).  Crea una nueva instancia de tipo file  convirtiendo la cadena de nombre de ruta dada en una ruta de acceso abstracta.
         String[] ficheros = dir.list();

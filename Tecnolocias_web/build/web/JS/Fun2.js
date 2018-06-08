@@ -99,7 +99,8 @@ $(document).ready(function(){
 					type: "get", //send it through get method
 					data: {
 						canvas:sv,
-						nom:$('#nom').val()
+						nom:$('#nom').val(),
+                                                num:$('#num').val()
 					},
 					success: function(response) {
 						alert("¡GUARDADO!");
