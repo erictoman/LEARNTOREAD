@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LEARNTOREAD</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="CSS/bulma.css">
+    </head>
+<body>
+    <h1 class="title is-3 has-text-centered">Lista de Usuarios</h1>
+    <section class="section">   
+        <div class="is-centered">
+                <table class="table is-bordered">
+                    <thead>
+                        <tr>
+                            <th>Usuario</th>
+                            <th>Tipo</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <td>
+                                coco@gmail.com
+                            </td>
+                            <td>
+                                Profesor 
+                            </td>
+                            <td>
+                                <a href='CambiosS?correo=coco@gmail.com'>Cambiar</a>
+                            </td>
+                            <td>
+                                <a href='Ban?correo=coco@gmail.com'>Eliminar</a>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+        </div>
+        <h3><a class="button is-info" href='add'> Agregar Usuarios </a></h3>
+        <br/>
+        <form action='logout' method='get'>
+            <input class="button" type='submit' value='Salir'>
+        </form>
+    </section>
+</body>
+</html>

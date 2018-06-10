@@ -24,64 +24,99 @@ public class index extends HttpServlet {
             if(sesion.getAttribute("Correo")!=null){
                 if(sesion.getAttribute("Tipo").equals("Administrador")){
                     out.println("<!DOCTYPE html>\n" +
-            "\n" +
-            "<html>\n" +
-            "    <head>\n" +
-            "        <title>TODO supply a title</title>\n" +
-            "        <meta charset=\"UTF-8\">\n" +
-            "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
-            "    </head>\n" +
-            "    <body>\n" + "<H1>Bienvenido "+sesion.getAttribute("Tipo") +" "+sesion.getAttribute("Nombre")+"</H1> <br/> <form action='Usuarios' method='get'><input type='submit' value='Control'/> </form> " + 
-                   "<br/><br/><form action='logout' method='get'>"
-                        + "<input type='submit' value='Salir'>"
-                        + "</form> <br/> <a href='Grupo'> Crear grupo  </a> <br/> <a href='Inscribir'>Inscribir alumnos </a> "+
-            "    </body>\n" +
-            "</html>\n" +
-            "");
-                    
+"<html>\n" +
+"    <head>\n" +
+"        <title>TODO supply a title</title>\n" +
+"        <meta charset=\"UTF-8\">\n" +
+"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+"        <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/bulma.css\">\n" +
+"    </head>\n" +
+"    <body>\n"
+                            + "<section class='section'>" +
+"        <div class=\"control has-text-centered\">\n" +
+"            <H1 class=\"title is-3 has-text-centered\">Bienvenido "+sesion.getAttribute("Tipo")+" "+sesion.getAttribute("Nombre")+"</H1>\n" +
+"            <form action='Usuarios' method='get'>\n" +
+"                <input class=\"button is-info\" type='submit' value='Control'/><br> \n" +
+"            </form>\n" +
+"            <a class=\"button\" href='Grupo'> Crear grupo</a>\n" +
+"            <br>\n" +
+"            <a class=\"button is-info\" href='Inscribir'>Inscribir alumnos</a><br>\n" +
+"            <form action='logout' method='get'>\n" +
+"                <input class=\"button\" type='submit' value='Salir'><br>\n" +
+"            </form>\n" +
+"        </div>\n"
+                            + "</section>" +
+"    </body>\n" +
+"</html>");   
                 }
                 else
                 {
                     if(sesion.getAttribute("Tipo").equals("Profesor"))
                     {
-                out.print("<H1>Bienvenido "+sesion.getAttribute("Tipo")+" "+sesion.getAttribute("Nombre")+ "</H1>"
-                        + "<a href=\"Cambios\">Cambiar informacion de cuenta</a>");
-                out.println("<br/><br/><form action='logout' method='get'>"
-                        + "<input type='submit' value='Salir'>"
-                        + "</form> ");
-                out.println("<br/><br/> <a href='Diagramas'>Lecturas </a>  ");
-                out.println("<br/><br/> <form action='Subir' method='post'> <input type='submit' name='forma' value='SubirImagen' /></form>    ");
+                    out.print("<!DOCTYPE html>\n" +
+"<html>\n" +
+"    <head>\n" +
+"        <title>LEARNTOREAD</title>\n" +
+"        <meta charset=\"UTF-8\">\n" +
+"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+"        <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/bulma.css\">\n" +
+"    </head>\n" +
+"    <body>\n" +
+"        <section class=\"section\">\n" +
+"            <div class=\"control has-text-centered\">\n" +
+"                <H1 class=\"title has-text-centered is-3\">Bienvenido "+sesion.getAttribute("Tipo")+" "+sesion.getAttribute("Nombre")+"</H1>\n" +
+"                <a href=\"Cambios\" class=\"button is-info\">Cambiar informacion de cuenta</a>\n" +
+"                <br/>\n" +
+"                <a href='Diagramas' class=\"button\">Lecturas </a>\n" +
+"                <form action='Subir' method='post'> \n" +
+"                    <input class=\"button is-info\" type='submit' name='forma' value='SubirImagen' />\n" +
+"                </form>\n" +
+"                <form action='logout' method='get'>\n" +
+"                    <input class=\"button\" type='submit' value='Salir'>\n" +
+"                </form>           \n" +
+"            </div>\n" +
+"        </section>\n" +
+"    </body>\n" +
+"</html>");
                     }else{//Sesion alumno
                          out.print("<H1>Bienvenido "+sesion.getAttribute("Tipo")+" "+sesion.getAttribute("Nombre")+ "</H1>"
                         + "<a href=\"Cambios\">Cambiar informacion de cuenta</a>");
                 out.println("<br/><br/><form action='logout' method='get'>"
                         + "<input type='submit' value='Salir'>"
                         + "</form> ");
-                        
                     }
                 }
-                
             }else{
-                out.println("<!DOCTYPE html>\n" +
-            "\n" +
-            "<html>\n" +
-            "    <head>\n" +
-            "        <title>TODO supply a title</title>\n" +
-            "        <meta charset=\"UTF-8\">\n" +
-            "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
-            "    </head>\n" +
-            "    <body>\n" +
-            "        <h1>Inicia sesion para tener acceso al sitio </h1>\n" +
-            "        <form action=\"Login\" method=\"get\">\n" +
-            "            <label for=\"user\">Correo:</label><input  type=\"text\" name=\"user\"/><br/>\n" +
-            "            <label for=\"pass\">Contraseña:</label><input type=\"password\" name=\"pass\"/><br/>\n" +
-            "            <input type=\"submit\" /><br/>\n" +
-            "        </form>\n" +
-            "        <br>\n" +
-            "        <a href=\"Registrarse\">Registro</a>\n" +
-            "    </body>\n" +
-            "</html>\n" +
-            "");
+                out.println(""
+                        + "<!DOCTYPE html>\n" +
+"<html>\n" +
+"    <head>\n" +
+"        <title>LEARNTOREAD</title>\n" +
+"        <meta charset=\"UTF-8\">\n" +
+"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+"        <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/bulma.css\">\n" +
+"    </head>\n" +
+"    <body>\n" +
+"        <h1 class=\"title is-2 has-text-centered\">Inicia sesion para tener acceso al sitio </h1>\n" +
+"        <section class=\"section\">\n" +
+"            <form class=\"\" action=\"Login\" method=\"get\">\n" +
+"                <div class=\"control\">\n" +
+"                    <label for=\"user\" class=\"label\">Correo:</label><input class=\"input\" type=\"text\" name=\"user\"/><br/>\n" +
+"                    <label for=\"pass\" class=\"label\">Contraseña:</label><input class=\"input\" type=\"password\" name=\"pass\"/><br/>\n" +
+"                    <br>\n" +
+"                    <div class=\"field is-grouped is-pulled-right has-text-centered\">\n" +
+"                        <div class=\"control\">\n" +
+"                            <input type=\"submit\" class=\"button is-link\"/>\n" +
+"                        </div>\n" +
+"                        <div class=\"control\">\n" +
+"                            <a class=\"button is-text\" href=\"Registrarse\">Registro</a>\n" +
+"                        </div>\n" +
+"                    </div>        \n" +
+"                </div>\n" +
+"            </form>\n" +
+"        </section>\n" +
+"    </body>\n" +
+"</html>");
             }
         }
     }

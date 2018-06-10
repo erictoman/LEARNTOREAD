@@ -24,19 +24,24 @@ public class Historia extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
       PrintWriter out = response.getWriter();
-          
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Historia</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Crea una nueva Historia </h1> <form action='HistoriaN' method='get'> ");
-            out.println("<label>Nombre de la Historia </label> <input type='text' name='NombreH' required/> ");
-            out.println("<input type='submit'> </form> </body>");
-            out.println("</html>");
-      
+      out.print("<!DOCTYPE html>\n" +
+"<html>\n" +
+"    <head>\n" +
+"        <title>Servlet Historia</title>\n" +
+"        <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/bulma.css\">\n" +
+"    </head>\n" +
+"    <body>\n" +
+"        <section class=\"section\">\n" +
+"            <h1 class=\"title is-3 has-text-centered\">Crea una nueva Historia </h1>\n" +
+"            <form action='HistoriaN' method='get'> \n" +
+"                <label class=\"label\">Nombre de la Historia</label>\n" +
+"                <input class=\"input\" type='text' name='NombreH' required/>\n" +
+"                <br>\n" +
+"                <br> \n" +
+"                <input class=\"button is-info\" type='submit'>\n" +
+"            </form>\n" +
+"        </section>\n" +
+"    </body>\n" +
+"</html>");
     }
-
-
 }

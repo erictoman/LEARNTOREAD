@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LEARNTOREAD</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="JS/Validaciones.js"></script>
+        <link rel="stylesheet" type="text/css" href="CSS/bulma.css">
+    </head>
+    <body>
+        <section class="section">
+        <form action="CambiarInfo" method="get" onsubmit="return validaP(this);" >
+            <H1 class="title is-3 has-text-centered">Cambios en el perfil</H1>
+            <label class="label" for="correo">Correo:</label><input class="input" type="text" name="correo" value='rafa@gmail.com'/><br/>
+            <label class="label" for="nom">Nombre:</label><input class="input" type="text" name="nom" value='Rafael Hernandez Ruiz'/><br/>
+            <label class="label" for="password">Contraseña:</label><input class="input" type="password" name="pass"/><br/>
+            <label class="label" for="password1">Repetir Contraseña:</label><input class="input" type="password" name="pass1"/><br/>
+            <br>
+            <input class="button is-info is-pulled-right" type="submit"/>
+        </form>
+        </section>
+    </body>
+</html>

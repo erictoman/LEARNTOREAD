@@ -22,59 +22,81 @@ public class Lectura extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         response.setContentType("text/html;charset=UTF-8");
-         String nombreh=request.getParameter("NombreH");
+        
+        HttpSession sesion = request.getSession();
+        String path1 = request.getRealPath("/archivo_xml");
+        String Correo = (String)sesion.getAttribute("CorreoU");
+        String nombre = request.getParameter("NombreH");
+        path1=path1 + "/base.xml";
+        Operaciones o = new Operaciones();
+ 
+       response.setContentType("text/html;charset=UTF-8");
+       int NUM=1+o.NumHistoria(Correo,nombre, path1);
+       //Num;
        PrintWriter out = response.getWriter();
-       out.println("<html>\n" +
-"  	<head>\n" +
-"	  	<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/fabric.js/2.2.4/fabric.min.js\"></script>\n" +
-"	  	<script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js\"></script>\n" +
-"	  	<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n" +
-"	  	<script src=\"http://code.responsivevoice.org/responsivevoice.js\"></script>\n" +
-"	  	<script src=\"JS/Fun.js\"></script>\n" +
-"	  	<link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/stilo.css\">\n" +
-"  	</head>\n" +
-"  	<body>\n"
-               + "<div id='centeredDiv'><H1>Crea una nueva lectura</H1></div>" +
-"		<div class=\"Container\">\n" +
-"	        <div class=\"Content\">\n" +
-"	            <div class=\"Wrapper\">\n" +
-"	                <div class=\"RightContent\">\n" +
-"	                	<div class=\"image-detail\">\n" +
-"		                    <canvas id=\"canvas\" width=\"600\" height=\"600\" style=\"border: 1px solid #222\"></canvas>\n" +
-"							<br>\n" +
-"						    <button id=\"botontexto\">Añadir texto</button>\n" +
-"							<button id=\"botoneliminar\">Eliminar elemento</button>\n" +
-"						    <audio autoplay src=\"\" class=\"A\"></audio>\n" +
-"							<a href=\"MisImagenes\" target=\"_blank\"><input type='button' value='Imagenes de mi biblioteca'/></a>\n" +
-"							<br><br>\n" +
-
-"							<button id=\"botonguardar\">Guardar</button><br>\n" +
-"<input type='text' name='numero' id='numero' placeholder='Numero de pagina'/>  \n"+
-               "<input type='text' name='NombreH' id='NombreH' value='"+nombreh+"' readonly/>  \n"+
-
-"						</div>\n" +
-"	                </div>\n" +
-"	                <div class=\"LeftContent\" id=\"over\">\n");
-	HttpSession sesion = request.getSession();
-        String path=request.getRealPath("/Fotos");
-        File dir = new File(path); //La clase file tiene 3 constructores  File (String path).  Crea una nueva instancia de tipo file  convirtiendo la cadena de nombre de ruta dada en una ruta de acceso abstracta.
-        String[] ficheros = dir.list();
-        int p= ficheros.length;
-        int index=0;
-        for(int i =0; i<p ; i++)
-        {
-            index=ficheros[i].indexOf((String)sesion.getAttribute("CorreoU"));
-            if(index!=-1)
-            {
-              out.println("<img src='Fotos/"+ficheros[i]+"' with='100' height='100'/> <br/> <br/>");
-            }
-        }           	
-out.println("	                </div>\n" +
-"	            </div>\n" +
-"	        </div>\n" +
-"    	</div>\n" +
-"	</body>\n" +
+        try {
+            out.println(""
+                    + "<!DOCTYPE html>\n" +
+"<html>\n" +
+"    <head>\n" +
+"        <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/fabric.js/2.2.4/fabric.min.js\"></script>\n" +
+"        <script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js\"></script>\n" +
+"        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n" +
+"        <script src=\"http://code.responsivevoice.org/responsivevoice.js\"></script>\n" +
+"        <script src=\"JS/Fun.js\"></script>\n" +
+"        <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/bulma.css\">\n" +
+"        <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/stilo.css\">\n" +
+"    </head>\n" +
+"    <body>\n"
+     + "<section class='section'>" +
+"        <div id='centeredDiv'>\n" +
+"            <H1 class=\"title is-3 has-text-centered\">Modifica la pagina</H1>\n" +
+"        </div>		\n" +
+      "</section>" +
+"            <section class=\"section\">\n" +
+"                <div class=\"Content\">\n" +
+"                    <div class=\"Wrapper\">\n" +
+"                        <div class=\"RightContent\">\n" +
+"                            <div class=\"image-detail\">\n" +
+"                                <canvas  id=\"canvas\" width=\"500\" height=\"500\" style=\"border: 1px solid #222\"></canvas>\n" +
+"                                <br>\n" +
+"                                <button class=\"button\" id=\"botontexto\">Añadir texto</button>\n" +
+"                                <button class=\"button\" id=\"botoneliminar\">Eliminar elemento</button>\n" +
+"                                <audio autoplay src=\"\" class=\"A\"></audio>\n" +
+"                                <br><br>\n" +
+"                                <button class=\"button is-info\" id=\"botonguardar\">Guardar</button><br>\n" +
+                    "							<input type='hidden' name='nom' id='cVV' value='"+o.obtenerS((String) sesion.getAttribute("CorreoU"),request.getParameter("correo"),path1 , request.getParameter("numS"))+"' />\n" +
+"                                <br>\n" +
+"                                <input class=\"input\" type='text' name='numero' id='numero' placeholder='Numero de pagina' value='"+NUM+"' readonly/>  \n" +
+"                                <br>\n" +
+"                                <input class=\"input\" type='text' name='NombreH' id='NombreH' value='"+nombre+"' readonly/><br><br>  \n" +
+"                            </div>\n" +
+"                        </div>\n" +
+"                        <div class=\"LeftContent is-pulled-right\" id=\"over\">\n"
+                    + "<figure class=\"image is-128x128\">\n");
+                    String path=request.getRealPath("/Fotos");
+                    File dir = new File(path); //La clase file tiene 3 constructores  File (String path).  Crea una nueva instancia de tipo file  convirtiendo la cadena de nombre de ruta dada en una ruta de acceso abstracta.
+                    String[] ficheros = dir.list();
+                    int p= ficheros.length;
+                    int index=0;
+                    for(int i =0; i<p ; i++)
+                    {
+                        index=ficheros[i].indexOf((String)sesion.getAttribute("CorreoU"));
+                        if(index!=-1)
+                        {
+                          out.println("<img src='Fotos/"+ficheros[i]+"' with='100' height='100'/> <br/> <br/>");
+                        }
+                    }           	
+out.println("" +
+"                            </figure>\n" +
+"                        </div>\n" +
+"                    </div>\n" +
+"            </section>\n" +
+"        </div>\n" +
+"    </body>\n" +
 "</html>");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 }

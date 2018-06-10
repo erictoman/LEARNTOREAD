@@ -23,25 +23,28 @@ public class Cambios extends HttpServlet {
             if(correo!=null){
                   sesion.setAttribute("correoCambiar", correo);
                 out.println("<!DOCTYPE html>\n" +
-                        "<html>\n" +
-                        "    <head>\n" +
-                        "        <title>TODO supply a title</title>\n" +
-                        "        <meta charset=\"UTF-8\">\n" +
-                        "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
-                        "        <script src=\"JS/Validaciones.js\"></script>\n" +
-                        "    </head>\n" +
-                        "    <body>\n" +
-                        "        <form action=\"CambiarInfo\" method=\"get\" onsubmit=\"return validaP(this);\" >\n" +
-                        "            <label for=\"correo\">Correo:</label><input type=\"text\" name=\"correo\" value='"+correo+"'/><br/>\n" +
-                        "            <label for=\"nom\">Nombre:</label><input type=\"text\" name=\"nom\" value='"+nombre+"'/><br/>\n" +
-                        "            <label for=\"password\">Contraseña:</label><input type=\"password\" name=\"pass\"/><br/>\n" +
-                        "            <label for=\"password1\">Repetir Contraseña:</label><input type=\"password\" name=\"pass1\"/><br/>\n" +
-                        "            <br>\n" +
-                        "            <input type=\"submit\"/>\n" +
-                        "        </form>\n" +
-                        "    </body>\n" +
-                        "</html>\n" +
-                        "");
+"<html>\n" +
+"    <head>\n" +
+"        <title>TODO supply a title</title>\n" +
+"        <meta charset=\"UTF-8\">\n" +
+"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+"        <script src=\"JS/Validaciones.js\"></script>\n" +
+"        <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/bulma.css\">\n" +
+"    </head>\n" +
+"    <body>\n" +
+"        <section class=\"section\">\n" +
+"        <form action=\"CambiarInfo\" method=\"get\" onsubmit=\"return validaP(this);\" >\n" +
+"            <H1 class=\"title is-3 has-text-centered\">Cambios en el perfil</H1>\n" +
+"            <label class=\"label\" for=\"correo\">Correo:</label><input class=\"input\" type=\"text\" name=\"correo\" value='"+correo+"'/><br/>\n" +
+"            <label class=\"label\" for=\"nom\">Nombre:</label><input class=\"input\" type=\"text\" name=\"nom\" value='"+nombre+"'/><br/>\n" +
+"            <label class=\"label\" for=\"password\">Contraseña:</label><input class=\"input\" type=\"password\" name=\"pass\"/><br/>\n" +
+"            <label class=\"label\" for=\"password1\">Repetir Contraseña:</label><input class=\"input\" type=\"password\" name=\"pass1\"/><br/>\n" +
+"            <br>\n" +
+"            <input class=\"button is-info is-pulled-right\" type=\"submit\"/>\n" +
+"        </form>\n" +
+"        </section>\n" +
+"    </body>\n" +
+"</html>");
             }else{
                 out.println("<H1>¡FUERA DE AQUI!</H1>");
             }

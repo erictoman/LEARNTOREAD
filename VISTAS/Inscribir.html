@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>  $(document).ready(function(){
+                    $("#botonguardar").click(function() {
+                        
+                        $.ajax({
+                            url: "Inscripcion",
+                            type: "get", //send it through get method
+                            data: {
+                                grupo:$('select[name=grupo]').val(), 
+                                nom:$('select[name=text]').val()
+                            },
+                            success: function(response) {
+                                alert("¡GUARDADO!");
+                                                        window.parent.location='Diagramas'
+                            },
+                            error: function(xhr) {
+                                alert("Error!"); window.parent.location='Diagramas'
+                            }
+                        });
+                    });
+                });			
+        </script>
+        <link rel="stylesheet" type="text/css" href="CSS/bulma.css">
+    </head>
+    <body>
+        <section class="section">
+            <h1 class="title is-3 has-text-centered">Crea un grupo adminsitrador</h1>
+            <p>Solo es necesario escribir el nombre del profesor y listo en la parte de registar alumnos podras inscrbirlos</p>
+            <label class="label">Selecciona al Alumno </label> 
+            <select class="select"  name='text'> 
+                <option value='belem@gmail.com'>belem@gmail.com</option>
+                <option value='art@gmail.com'>art@gmail.com</option>
+            </select><br>
+            <label class="label">Selecciona el grupo</label>
+            <select class="select"  name='grupo'> 
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+                <option value='6'>6</option>
+            </select><br>
+            <button class="button is-info is-pulled-right" id="botonguardar">Guardar</button><br>
+        </section>
+    </body>
+</html>

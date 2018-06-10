@@ -63,51 +63,48 @@ public class Diagramas extends HttpServlet {
           Element node;
           Element node2;
           List lista2=null;
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Lista de Lecturas</h1>");
-            out.println("<table border='1'>");
-           
-            for(int i=0; i<lista.size(); i++)
-            {
+          out.println("<!DOCTYPE html>\n" +
+"<html>\n" +
+"    <head>\n" +
+"        <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/bulma.css\">\n" +
+"    </head>\n" +
+"    <body>\n" +
+"        <section class=\"section\">\n" +
+"            <div class=\"has-text-centered\">\n" +
+"            <h1 class=\"title is-3 has-text-centered\">Lista de Lecturas</h1>\n" +
+"            <table class=\"table is-bordered\">\n" +
+"                <tfoot>\n");
+                for(int i=0; i<lista.size(); i++){
                 node=(Element) lista.get(i);
-                if (node.getAttributeValue("Creador").equals(correo))
-                {
-                lista2=node.getChildren("Serial");
-                out.println("<tr><td> Nombre Historia: "+node.getAttributeValue("NombreH")+"</td> <td> <a href='Lectura?NombreH="+node.getAttributeValue("NombreH")+"'>Crear Lectura </a></td></tr>");
-                try
-                {
-                for (int j=0 ; j<lista2.size(); j++)
-                {
-                    node2 = (Element) lista2.get(j);
-                out.println("<tr><td>Numero de la pagina "+node2.getAttributeValue("numS")+"</td> <td><a href='CambiosD?correo="+node.getAttributeValue("NombreH")+"&numS="+node2.getAttributeValue("numS")+" '>Cambiar</a></td> <td> <a href='Ban?correo="+node.getAttributeValue("NombreH")+"&nums="+node2.getAttributeValue("numS")+" '>Eliminar</a></td> </tr>");
-                
+                if (node.getAttributeValue("Creador").equals(correo)){
+                    lista2=node.getChildren("Serial");
+                    out.println("<tr><th> Nombre Historia: "+node.getAttributeValue("NombreH")+"</th> <th> <a href='Lectura?NombreH="+node.getAttributeValue("NombreH")+"'>Añadir pagina</a></th></tr>");
+                    try{
+                        for (int j=0 ; j<lista2.size(); j++){
+                            node2 = (Element) lista2.get(j);
+                            out.println("<tr><td>Numero de la pagina "+node2.getAttributeValue("numS")+"</td> <td><a href='CambiosD?correo="+node.getAttributeValue("NombreH")+"&numS="+node2.getAttributeValue("numS")+" '>Cambiar</a></td> <td> <a href='BanPagina?correo="+node.getAttributeValue("NombreH")+"&nums="+node2.getAttributeValue("numS")+" '>Eliminar</a></td> </tr>");
+                            }
+                        }
+                    catch(Exception e){
+                     out.print("<tr><th> No tiene historias </th></tr>");
+                    }
                 }
-                }
-                catch(Exception e)
-                {
-                 out.print("<tr><td> No tiene historias </td></tr>");
-                }
-                } }
-            out.println("</table>");
-        }
-        catch(Exception e)
-        {
+            }
+out.print("                </tfoot>\n" +
+"            </table>\n" +
+"            <a href='Historia' class=\"button is-info\">Crear Historia </a> <br/> \n" +
+"            <br/><br/>\n" +
+"            <form action='logout' method='get'>\n" +
+"                <input class=\"button\" type='submit' value='Salir'>\n" +
+"            </form>\n" +
+"            </div>\n" +
+"        </section>\n" +
+"    </body>\n" +
+"</html>");
+        }catch(Exception e){
             e.printStackTrace();
         }
-            out.println("<br/><br/> <a href='Historia'>Crear Historia </a> <br/> ");
-            out.println("<br/><br/><form action='logout' method='get'>"
-                        + "<input type='submit' value='Salir'>"
-                        + "</form> ");
-            out.println("</body>");
-            out.println("</html>");
-        }
-      else
-      {
+        }else{
                 out.println("<!DOCTYPE html>");
                         out.println("<html>");
                         out.println("<body bgcolor='#A2E375'>");

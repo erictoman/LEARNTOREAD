@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>  $(document).ready(function(){
+                $("#botonguardar").click(function() {
+                    $.ajax({
+                        url: "CreateG",
+                        type: "get", //send it through get method
+                        data: {
+                            num:7,
+                            nom:$('select[name=text]').val()
+                        },
+                        success: function(response) {
+                            alert("¡GUARDADO!");
+                                                    window.parent.location='Diagramas'
+                        },
+                        error: function(xhr) {
+                            alert("Error!"); window.parent.location='Diagramas'
+                        }
+                    });
+                });
+            });			
+    </script>
+    <link rel="stylesheet" type="text/css" href="CSS/bulma.css">
+</head>
+    <body>
+        <h1 class="title is-3 has-text-centered">Crea un grupo adminsitrador</h1>
+        <section class="section">
+            <div class="content">
+                <p class="">Solo es necesario escribir el nombre del profesor y listo en la parte de registar alumnos podras inscrbirlos</p>
+                <label class="label">Selecciona el profesor </label>
+                <select class="select" name='text'> 
+                    <option value='coco@gmail.com'>coco@gmail.com</option>
+                    <option value='rafa@gmail.com'>rafa@gmail.com</option>
+                </select>
+                <button id="botonguardar">Guardar</button>
+            </div>
+        </section>
+    </body>
+</html>

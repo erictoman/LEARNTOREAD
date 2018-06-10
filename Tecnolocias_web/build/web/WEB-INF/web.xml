@@ -105,6 +105,14 @@
         <servlet-name>HistoriaN</servlet-name>
         <servlet-class>HistoriaN</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VistaHistoria</servlet-name>
+        <servlet-class>VistaHistoria</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VerHistoriaCreador</servlet-name>
+        <servlet-class>VerHistoriaCreador</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -204,6 +212,14 @@
     <servlet-mapping>
         <servlet-name>HistoriaN</servlet-name>
         <url-pattern>/HistoriaN</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VistaHistoria</servlet-name>
+        <url-pattern>/VistaHistoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VerHistoriaCreador</servlet-name>
+        <url-pattern>/VerHistoriaCreador</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

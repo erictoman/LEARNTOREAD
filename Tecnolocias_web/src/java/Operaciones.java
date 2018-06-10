@@ -1,3 +1,6 @@
+import Cuento.Cuento;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.sun.faces.facelets.util.FastWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -190,53 +193,43 @@ public class Operaciones {
             }
            return 0;
     }
-    public int Serial(String Correo , String Nombre , String Serial , String path , String num) throws IOException
-    {
+    public int Serial(String Correo , String Nombre , String Serial , String path , String num) throws IOException{
         int res=0;
-               Document doc = new Document();
+        Document doc = new Document();
         try {
             File fXmlFile = new File(path);
             SAXBuilder builder = new SAXBuilder();
             doc=builder.build(fXmlFile);
         }catch(JDOMException | IOException e ){
-              System.out.println("" + e.getMessage());
+            System.out.println("" + e.getMessage());
         }
         Element serie = new Element ("Serial");
-        
-      serie.setText(Serial);
-      serie.setAttribute("numS", num);
-      List lista=doc.getRootElement().getChild("Historias").getChildren("Historia");
-     Element nodo;
-     Element nodo2;
-   
-   
-     
-      XMLOutputter xmlout= new XMLOutputter();
-       for(int i =0;i<lista.size();i++){
-           nodo = (Element) lista.get(i);
-           if(nodo.getAttributeValue("NombreH").equals(Nombre) && nodo.getAttributeValue("Creador").equals(Correo)){
-               List lista2=nodo.getChildren("Serial");
-                 for (int z=0; z<lista2.size() ; z++)
-     {
-         nodo2=(Element) lista2.get(z);
-         if(nodo2.getAttributeValue("numS").equals(num))
-         {
-             return 0;
-         }
-     }
-     
-              nodo.addContent(serie);
-               
-               xmlout.setFormat(Format.getPrettyFormat());
-               xmlout.output(doc,new FileWriter(path));
-               xmlout.output(doc,System.out);
-               return 1;
-           }   
-       }
-        
-        
+        serie.setText(Serial);
+        serie.setAttribute("numS", num);
+        List lista=doc.getRootElement().getChild("Historias").getChildren("Historia");
+        Element nodo;
+        Element nodo2;
+        XMLOutputter xmlout= new XMLOutputter();
+        for(int i =0;i<lista.size();i++){
+            nodo = (Element) lista.get(i);
+            if(nodo.getAttributeValue("NombreH").equals(Nombre) && nodo.getAttributeValue("Creador").equals(Correo)){
+                List lista2=nodo.getChildren("Serial");
+                for (int z=0; z<lista2.size();z++){
+                    nodo2=(Element) lista2.get(z);
+                    if(nodo2.getAttributeValue("numS").equals(num)){
+                        return 0;
+                    }
+                }
+                nodo.addContent(serie);
+                xmlout.setFormat(Format.getPrettyFormat());
+                xmlout.output(doc,new FileWriter(path));
+                xmlout.output(doc,System.out);
+                return 1;
+            }   
+        }
         return res;
     }
+    
     public String obtenerS(String correo, String nom , String path , String numS) throws JDOMException, IOException
     {
        String ser="";
@@ -262,47 +255,98 @@ public class Operaciones {
                     }
                 }
             }
-     
-        
-        
         return ser;
     }
+    
+    public String ObtenerHistoria(String Correo , String Nombre, String path) throws IOException{
+        Document doc = new Document();
+        try {
+            File fXmlFile = new File(path);
+            SAXBuilder builder = new SAXBuilder();
+            doc=builder.build(fXmlFile);
+        }catch(JDOMException | IOException e ){
+            System.out.println("" + e.getMessage());
+        }
+        List lista=doc.getRootElement().getChild("Historias").getChildren("Historia");
+        Element nodo;
+        Element nodo2;
+        Cuento C = new Cuento();
+        Gson gson = new GsonBuilder().create();
+        System.out.println(Nombre);
+        System.out.println(Correo);
+        for(int i =0;i<lista.size();i++){
+            nodo = (Element) lista.get(i);
+            if(nodo.getAttributeValue("NombreH").equals(Nombre) && nodo.getAttributeValue("Creador").equals(Correo)){
+                System.out.println("Hasta Aqui");
+                List listaPaginas=nodo.getChildren();
+                for(int o =0;o<listaPaginas.size();o++){
+                    nodo2=(Element)listaPaginas.get(o);
+                    C.AgregarPagina(nodo2.getAttributeValue("numS"),nodo2.getText());
+                }
+            }
+        }
+        String Cuento = gson.toJson(C);
+        return Cuento;
+    }
+    
+    public int NumHistoria(String Correo , String Nombre, String path) throws IOException{
+        Document doc = new Document();
+        try {
+            File fXmlFile = new File(path);
+            SAXBuilder builder = new SAXBuilder();
+            doc=builder.build(fXmlFile);
+        }catch(JDOMException | IOException e ){
+            System.out.println("" + e.getMessage());
+        }
+        List lista=doc.getRootElement().getChild("Historias").getChildren("Historia");
+        Element nodo;
+        System.out.println(Nombre);
+        System.out.println(Correo);
+        for(int i =0;i<lista.size();i++){
+            nodo = (Element) lista.get(i);
+            if(nodo.getAttributeValue("NombreH").equals(Nombre) && nodo.getAttributeValue("Creador").equals(Correo)){
+                System.out.println("Hasta Aqui");
+                List listaPaginas=nodo.getChildren();
+                return listaPaginas.size();
+            }
+        }
+        return 0;
+    }
+    
     public int editarS (String correo , String nom , String path ,String serial, String numS) throws IOException, JDOMException
     {
-         File xml = new File(path);
-       SAXBuilder builder = new SAXBuilder();
-      Element nodo; 
-       Document doc = (Document) builder.build(xml);
-       Element rootnode = doc.getRootElement();
-       Element Historias = rootnode.getChild("Historias");
-       List lista = Historias.getChildren("Historia");
-       XMLOutputter xmlout= new XMLOutputter();
-       for(int i =0;i<lista.size();i++){
-           Element node = (Element) lista.get(i);
-           if(node.getAttributeValue("NombreH").equals(nom) && node.getAttributeValue("Creador").equals(correo)){
-               List lista2 =node.getChildren("Serial");
-               for(int j=0 ; j<lista2.size() ; j++)
-               {
-                  nodo=(Element) lista2.get(j);
-                  if (nodo.getAttributeValue("numS").equals(numS))
-                  {
-                      nodo.setText(serial);
-                        
-               xmlout.setFormat(Format.getPrettyFormat());
-               xmlout.output(doc,new FileWriter(path));
-               xmlout.output(doc,System.out);
-                return 1;
+        File xml = new File(path);
+        SAXBuilder builder = new SAXBuilder();
+        Element nodo; 
+        Document doc = (Document) builder.build(xml);
+        Element rootnode = doc.getRootElement();
+        Element Historias = rootnode.getChild("Historias");
+        List lista = Historias.getChildren("Historia");
+        XMLOutputter xmlout= new XMLOutputter();
+        for(int i =0;i<lista.size();i++){
+            Element node = (Element) lista.get(i);
+            if(node.getAttributeValue("NombreH").equals(nom) && node.getAttributeValue("Creador").equals(correo)){
+                List lista2 =node.getChildren("Serial");
+                for(int j=0 ; j<lista2.size() ; j++)
+                {
+                    nodo=(Element) lista2.get(j);
+                    if (nodo.getAttributeValue("numS").equals(numS))
+                    {
+                        nodo.setText(serial);    
+                        xmlout.setFormat(Format.getPrettyFormat());
+                        xmlout.output(doc,new FileWriter(path));
+                        xmlout.output(doc,System.out);
+                        return 1;
                   }
                }
-             
            }   
        }
        return 0;
-        
     }
+    
     public void Cgrupo (String nom, String num , String path) throws IOException
     {
-             Document doc = new Document();
+        Document doc = new Document();
         try {
             File fXmlFile = new File(path);
             SAXBuilder builder = new SAXBuilder();
@@ -311,10 +355,8 @@ public class Operaciones {
               System.out.println("" + e.getMessage());
         }
         Element Grupo = new Element ("Grupo");
-        
-      Grupo.setAttribute("num", num);
-      Grupo.setAttribute("profesor", nom);
-     
+        Grupo.setAttribute("num", num);
+        Grupo.setAttribute("profesor", nom);
         doc.getRootElement().getChild("Grupos").addContent(Grupo);
         XMLOutputter fmt = new XMLOutputter();
         try (FileWriter writer = new FileWriter(path)) {
@@ -336,44 +378,36 @@ public class Operaciones {
               System.out.println("" + e.getMessage());
         }
         Element NombreA = new Element ("NombreA");
-        
-      NombreA.setText(nom);
-      NombreA.setAttribute("correo", correo);
-      List lista=doc.getRootElement().getChild("Grupos").getChildren("Grupo");
-     Element nodo;
-     Element nodo2;
-   
-   
-     
-      XMLOutputter xmlout= new XMLOutputter();
-       for(int i =0;i<lista.size();i++){
-           nodo = (Element) lista.get(i);
-           if(nodo.getAttributeValue("num").equals(grupo)){
-               List lista2=nodo.getChildren("NombreA");
-                 for (int z=0; z<lista2.size() ; z++)
-     {
-         nodo2=(Element) lista2.get(z);
-         if(nodo2.getAttributeValue("correo").equals(correo))
-         {
-             return 0;
-         }
-     }
-     
-              nodo.addContent(NombreA);
-               
-               xmlout.setFormat(Format.getPrettyFormat());
-               xmlout.output(doc,new FileWriter(path));
-               xmlout.output(doc,System.out);
-               return 1;
-           }   
+        NombreA.setText(nom);
+        NombreA.setAttribute("correo", correo);
+        List lista=doc.getRootElement().getChild("Grupos").getChildren("Grupo");
+        Element nodo;
+        Element nodo2;
+        XMLOutputter xmlout= new XMLOutputter();
+        for(int i =0;i<lista.size();i++){
+            nodo = (Element) lista.get(i);
+            if(nodo.getAttributeValue("num").equals(grupo)){
+                    List lista2=nodo.getChildren("NombreA");
+                    for (int z=0; z<lista2.size() ; z++)
+                    {
+                        nodo2=(Element) lista2.get(z);
+                        if(nodo2.getAttributeValue("correo").equals(correo))
+                        {
+                            return 0;
+                        }
+                    }
+                nodo.addContent(NombreA);
+                xmlout.setFormat(Format.getPrettyFormat());
+                xmlout.output(doc,new FileWriter(path));
+                xmlout.output(doc,System.out);
+                return 1;
+            }   
        }
-        
-        
-        return res;
+       return res;
     }
     public void CreateH(String correo , String nombre , String path) throws IOException
     {
-          int res=0;
+        int res=0;
         Document doc = new Document();
         try {
             File fXmlFile = new File(path);
@@ -394,6 +428,5 @@ public class Operaciones {
             res=1;
             writer.flush();
         }
-        
     }
 }

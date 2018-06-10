@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/2.2.4/fabric.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+        <script src="JS/Fun.js"></script>
+        <link rel="stylesheet" type="text/css" href="CSS/bulma.css">
+        <link rel="stylesheet" type="text/css" href="CSS/stilo.css">
+    </head>
+    <body>
+        <div id='centeredDiv'>
+            <H1 class="title is-3 has-text-centered">Crea una nueva lectura</H1>
+        </div>		
+        <div class="Container">
+            <section class="section">
+                <div class="Content">
+                    <div class="Wrapper">
+                        <div class="RightContent">
+                            <div class="image-detail">
+                                <canvas  id="canvas" width="500" height="500" style="border: 1px solid #222"></canvas>
+                                <br>
+                                <button class="button" id="botontexto">Añadir texto</button>
+                                <button class="button" id="botoneliminar">Eliminar elemento</button>
+                                <audio autoplay src="" class="A"></audio>
+                                <br><br>
+                                <button class="button is-info" id="botonguardar">Guardar</button><br>
+                                <br>
+                                <input class="input" type='text' name='numero' id='numero' placeholder='Numero de pagina'/>  
+                                <br>
+                                <input class="input" type='text' name='NombreH' id='NombreH' value='Mango2' readonly/>  
+                            </div>
+                        </div>
+                        <div class="LeftContent is-pulled-right" id="over">
+                            <figure class="image is-128x128">
+                                <img src="https://bulma.io/images/placeholders/256x256.png">
+                                <br>
+                                <img src="https://bulma.io/images/placeholders/256x256.png">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>

@@ -17,16 +17,7 @@ import javax.servlet.http.HttpSession;
  * @author ertim
  */
 public class Registrarse extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
         HttpSession sesion = request.getSession(false);
             response.setContentType("text/html; charset=UTF-8");
@@ -41,26 +32,30 @@ public class Registrarse extends HttpServlet {
 "        <title>TODO supply a title</title>\n" +
 "        <meta charset=\"UTF-8\">\n" +
 "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+"        <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/bulma.css\">\n" +
 "        <script src=\"JS/Validaciones.js\"></script>\n" +
 "    </head>\n" +
-"    <body>\n" +
-"        <form action=\"registro\" method=\"get\" onsubmit=\"return validaP(this);\" >\n"
-                        + "<H1>Registro</H1><br>" +
-"            <label for=\"correo\">Correo:</label><input type=\"text\" name=\"correo\"/><br/>\n" +
-"            <label for=\"nom\">Nombre:</label><input type=\"text\" name=\"nom\"/><br/>\n" +
-"            <label for=\"password\">Contraseña:</label><input type=\"password\" name=\"pass\"/><br/>\n" +
-"            <label for=\"password1\">Repetir Contraseña:</label><input type=\"password\" name=\"pass1\"/><br/>\n" +
-"            <label for=\"tipo\">Tipo de usuario:</label>\n" +
-"            <select name=\"tipo\">\n" +
-"                <option value=\"1\">Creador</option>\n" +
-"                <option value=\"2\" selected>Usuario</option>\n" +
-"            </select>\n" +
-"            <br>\n" +
-"            <input type=\"submit\"/>\n" +
-"        </form>\n" +
+"    <body>\n"
++ "<section class='section'>" +
+"        <div class=\"\">\n" +
+"            <form action=\"registro\" method=\"get\" onsubmit=\"return validaP(this);\" >\n" +
+"            <H1 class=\"title is-3 has-text-centered\">Registro</H1><br>            \n" +
+"                <label for=\"correo\" class=\"label\">Correo:</label><input class=\"input\" type=\"text\" name=\"correo\"/><br/>\n" +
+"                <label for=\"nom\" class=\"label\">Nombre:</label><input class=\"input\" type=\"text\" name=\"nom\"/><br/>\n" +
+"                <label for=\"password\" class=\"label\">Contraseña:</label><input class=\"input\" type=\"password\" name=\"pass\"/><br/>\n" +
+"                <label for=\"password1\" class=\"label\">Repetir Contraseña:</label><input class=\"input\" type=\"password\" name=\"pass1\"/><br/>\n" +
+"                <label for=\"tipo\" class=\"label\">Tipo de usuario:</label>\n" +
+"                <select class=\"select is-medium is-pulled-left\" name=\"tipo\">\n" +
+"                    <option value=\"1\">Creador</option>\n" +
+"                    <option value=\"2\" selected>Usuario</option>\n" +
+"                </select>\n" +
+"                <br>\n" +
+"                <input class=\"button is-link is-pulled-right\" type=\"submit\"/>\n" +
+"            </form>\n" +
+"        </div>\n"
++ "</section>" +
 "    </body>\n" +
-"</html>\n" +
-"");
+"</html>");
             }else{
                 out.println("<H1>¡FUERA DE AQUI!</H1>");
             }

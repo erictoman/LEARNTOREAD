@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="CSS/bulma.css">
+        <script src="JS/Validaciones.js"></script>
+    </head>
+    <body>
+        <div class="">
+            <form action="registro" method="get" onsubmit="return validaP(this);" >
+            <H1 class="title is-3">Registro</H1><br>            
+                <label for="correo" class="label">Correo:</label><input class="input" type="text" name="correo"/><br/>
+                <label for="nom" class="label">Nombre:</label><input class="input" type="text" name="nom"/><br/>
+                <label for="password" class="label">Contraseña:</label><input class="input" type="password" name="pass"/><br/>
+                <label for="password1" class="label">Repetir Contraseña:</label><input class="input" type="password" name="pass1"/><br/>
+                <label for="tipo" class="label">Tipo de usuario:</label>
+                <select class="select is-medium is-pulled-left" name="tipo">
+                    <option value="1">Creador</option>
+                    <option value="2" selected>Usuario</option>
+                </select>
+                <br>
+                <input class="button is-link is-pulled-right" type="submit"/>
+            </form>
+        </div>
+    </body>
+</html>
