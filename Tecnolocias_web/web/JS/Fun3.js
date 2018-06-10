@@ -20,6 +20,7 @@ $(document).ready(function () {
             Actual=Actual-1;
             if(Actual==0){
                 $("#R").attr('disabled', 'disabled');
+                $("#A").removeAttr('disabled');
             }else{
                 $("#A").removeAttr('disabled');
                 $("#R").removeAttr('disabled');
@@ -35,7 +36,7 @@ $(document).ready(function () {
         if(Actual<tam){
             Actual=Actual+1;
             if(Actual==tam-1){
-                $("#R").show();
+                $("#R").removeAttr('disabled');
                 $("#A").attr('disabled', 'disabled');
             }else{
                 $("#A").removeAttr('disabled');

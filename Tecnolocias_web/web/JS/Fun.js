@@ -96,6 +96,9 @@ $(document).ready(function(){
 			$("#botonguardar").click(function() {
 				var sv=JSON.stringify(canvas);
 				console.log(sv);
+                                if($("#numero").val()===""){
+                                    alert("Asigna el nombre a la pagina");
+                                }else{
 				$.ajax({
 					url: "Save",
 					type: "get", //send it through get method
@@ -112,6 +115,7 @@ $(document).ready(function(){
 						alert("Error!");
 					}
 				});
+                            }
 			});
 //Al dar clic en el boton eliminar se toma el elemento que esta activo y es removido del canvas
 			$("#botoneliminar").click(function() {
