@@ -41,6 +41,7 @@ public class index extends HttpServlet {
 "            <a class=\"button\" href='Grupo'> Crear grupo</a>\n" +
 "            <br>\n" +
 "            <a class=\"button is-info\" href='Inscribir'>Inscribir alumnos</a><br>\n" +
+        "            <a class=\"button is-info\" href='Alumnos'>Ver grupos</a><br>\n" +
 "            <form action='logout' method='get'>\n" +
 "                <input class=\"button\" type='submit' value='Salir'><br>\n" +
 "            </form>\n" +

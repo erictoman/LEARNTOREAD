@@ -71,15 +71,15 @@ public class Grupo extends HttpServlet {
     "                        url: \"CreateG\",\n" +
     "                        type: \"get\", //send it through get method\n" +
     "                        data: {\n" +
-    "                            num:7,\n" +
+    "                            num:"+i+",\n" +
     "                            nom:$('select[name=text]').val()\n" +
     "                        },\n" +
     "                        success: function(response) {\n" +
     "                            alert(\"¡GUARDADO!\");\n" +
-    "                                                    window.parent.location='Diagramas'\n" +
+    "                                                    window.parent.location='index.html'\n" +
     "                        },\n" +
     "                        error: function(xhr) {\n" +
-    "                            alert(\"Error!\"); window.parent.location='Diagramas'\n" +
+    "                            alert(\"Error!\"); window.parent.location='index.html'\n" +
     "                        }\n" +
     "                    });\n" +
     "                });\n" +

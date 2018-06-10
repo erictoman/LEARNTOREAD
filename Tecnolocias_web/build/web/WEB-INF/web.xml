@@ -117,6 +117,10 @@
         <servlet-name>BanPagina</servlet-name>
         <servlet-class>BanPagina</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Alumnos</servlet-name>
+        <servlet-class>Alumnos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -228,6 +232,10 @@
     <servlet-mapping>
         <servlet-name>BanPagina</servlet-name>
         <url-pattern>/BanPagina</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Alumnos</servlet-name>
+        <url-pattern>/Alumnos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

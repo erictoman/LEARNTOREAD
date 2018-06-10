@@ -46,8 +46,8 @@ public class Registrarse extends HttpServlet {
 "                <label for=\"password1\" class=\"label\">Repetir Contraseña:</label><input class=\"input\" type=\"password\" name=\"pass1\"/><br/>\n" +
 "                <label for=\"tipo\" class=\"label\">Tipo de usuario:</label>\n" +
 "                <select class=\"select is-medium is-pulled-left\" name=\"tipo\">\n" +
-"                    <option value=\"1\">Creador</option>\n" +
-"                    <option value=\"2\" selected>Usuario</option>\n" +
+"                    <option value=\"Profesor\">Profesor</option>\n" +
+"                    <option value=\"Alumno\" selected>Alumno</option>\n" +
 "                </select>\n" +
 "                <br>\n" +
 "                <input class=\"button is-link is-pulled-right\" type=\"submit\"/>\n" +

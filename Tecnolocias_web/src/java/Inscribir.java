@@ -71,10 +71,10 @@ public class Inscribir extends HttpServlet {
 "                            },\n" +
 "                            success: function(response) {\n" +
 "                                alert(\"¡GUARDADO!\");\n" +
-"                                                        window.parent.location='Diagramas'\n" +
+"                                                        window.parent.location='index.html'\n" +
 "                            },\n" +
 "                            error: function(xhr) {\n" +
-"                                alert(\"Error!\"); window.parent.location='Diagramas'\n" +
+"                                alert(\"Error!\"); window.parent.location='index.html'\n" +
 "                            }\n" +
 "                        });\n" +
 "                    });\n" +
