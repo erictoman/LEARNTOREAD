@@ -40,7 +40,7 @@ out.println("<!DOCTYPE html>\n" +
 "        <script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js\"></script>\n" +
 "        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n" +
 "        <script src=\"http://code.responsivevoice.org/responsivevoice.js\"></script>\n" +
-"        <script src=\"JS/Fun.js\"></script>\n" +
+"        <script src=\"JS/Fun2.js\"></script>\n" +
 "        <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/bulma.css\">\n" +
 "        <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/stilo.css\">\n" +
 "    </head>\n" +

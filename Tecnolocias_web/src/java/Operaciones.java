@@ -289,8 +289,6 @@ public class Operaciones {
         return "";
     }
     
-    
-    
     public String ObtenerHistoria(String Correo , String Nombre, String path) throws IOException{
         Document doc = new Document();
         try {
@@ -303,7 +301,7 @@ public class Operaciones {
         List lista=doc.getRootElement().getChild("Historias").getChildren("Historia");
         Element nodo;
         Element nodo2;
-        Cuento C = new Cuento();
+        Cuento C = new Cuento(Nombre);
         Gson gson = new GsonBuilder().create();
         System.out.println(Nombre);
         System.out.println(Correo);

@@ -13,8 +13,18 @@ import java.util.ArrayList;
  */
 public class Cuento {
     private ArrayList<Pagina> Libro = new ArrayList<Pagina>();
-    public Cuento(){
-        
+    private String Nombre;
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+    
+    public Cuento(String Nombre){
+        this.Nombre=Nombre;
     }
     
     public void AgregarPagina(String numero,String Contenido){

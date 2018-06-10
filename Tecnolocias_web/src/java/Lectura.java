@@ -64,7 +64,7 @@ out.println("<!DOCTYPE html>\n" +
 "                                <button class=\"button is-info\" id=\"botonguardar\">Guardar</button><br>\n" +
 "                                <br>\n" +
 "							<input type='hidden' name='nom' id='cVV' value='"+o.obtenerS((String) sesion.getAttribute("CorreoU"),request.getParameter("correo"),path1 , request.getParameter("numS"))+"' />\n" +
-"                                <input class=\"input\" type='text' name='numero' id='numero' placeholder='Numero de pagina' value=''  />  \n" +
+"                                <input class=\"input\" type='text' name='numero' id='numero' placeholder='Numero de pagina' value='' required/>  \n" +
 "                                <br>\n" +
 "                                <input class=\"input\" type='text' name='NombreH' id='NombreH' value='"+nombre+"' readonly/>  \n" +
 "                            </div>\n" +

@@ -10,32 +10,20 @@
         <link rel="stylesheet" type="text/css" href="CSS/stilo.css">
     </head>
     <body>
-        <div id='centeredDiv'>
-            <H1 class="title is-3 has-text-centered">Crea una nueva lectura</H1>
-        </div>		
         <div class="Container">
             <section class="section">
+                <H1 class="title is-3 has-text-centered">Lectura Nombre</H1>
                 <div class="Content">
                     <div class="Wrapper">
-                        <div class="RightContent">
-                            <div class="image-detail">
+                            <div class="image-detail has-text-centered">
                                 <canvas  id="canvas" width="500" height="500" style="border: 1px solid #222"></canvas>
+                                <br><audio autoplay src="" class="A"></audio>
+                                <input class="button" type="button" value="Regresar">
+                                <input class="button" type="button" value="Avanzar">
+                                <input type="text" value="Avanzar" hidden="false">
                                 <br>
-                                <button class="button" id="botontexto">Añadir texto</button>
-                                <button class="button" id="botoneliminar">Eliminar elemento</button>
-                                <audio autoplay src="" class="A"></audio>
-                                <br><br>
-                                <button class="button is-info" id="botonguardar">Guardar</button><br>
                                 <br>
-                                <input class="input" type='text' name='numero' id='numero' placeholder='Numero de pagina'/>  
-                                <br>
-                                <input class="input" type='text' name='NombreH' id='NombreH' value='Mango2' readonly/>  
                             </div>
-                        </div>
-                        <div class="LeftContent is-pulled-right" id="over">
-                                <img src="https://bulma.io/images/placeholders/256x256.png">
-                                <br>
-                                <img src="https://bulma.io/images/placeholders/256x256.png">
                         </div>
                     </div>
                 </div>

@@ -18,7 +18,6 @@ import javax.servlet.http.HttpSession;
  */
 public class VistaHistoria extends HttpServlet {
     
-        
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -28,6 +27,7 @@ public class VistaHistoria extends HttpServlet {
         Operaciones op = new Operaciones();
         String Correo = (String) sesion.getAttribute("CorreoU");
         String nombre = request.getParameter("nom");
+        System.out.println(nombre);
         String path = request.getRealPath("archivo_xml");
         path=path + "/base.xml";
         out.print(op.ObtenerHistoria(Correo, nombre, path));

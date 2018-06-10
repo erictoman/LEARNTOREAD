@@ -26,23 +26,20 @@ import org.jdom.input.SAXBuilder;
  */
 public class Diagramas extends HttpServlet {
 
-   
-  
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-      HttpSession sesion = request.getSession();
+        HttpSession sesion = request.getSession();
         PrintWriter out = response.getWriter();
-      if(sesion.getAttribute("CorreoU")!= null && ((String)sesion.getAttribute("Tipo")).equalsIgnoreCase("Profesor"))
+        if(sesion.getAttribute("CorreoU")!= null && ((String)sesion.getAttribute("Tipo")).equalsIgnoreCase("Profesor"))
         {
-                String path = request.getRealPath("/archivo_xml");
-                path=path + "/base.xml";
-                String correo =(String)sesion.getAttribute("CorreoU");
-     File xml = new File(path);
-       SAXBuilder builder = new SAXBuilder();
-      Document doc = null; 
+            String path = request.getRealPath("/archivo_xml");
+            path=path + "/base.xml";
+            String correo =(String)sesion.getAttribute("CorreoU");
+        File xml = new File(path);
+        SAXBuilder builder = new SAXBuilder();
+        Document doc = null; 
         try {
             doc = (Document) builder.build(xml);
         } catch (JDOMException ex) {
@@ -50,19 +47,18 @@ public class Diagramas extends HttpServlet {
         }
         try
         {
-       Element rootnode = doc.getRootElement();
-       Element Historias = rootnode.getChild("Historias");
-       List lista = Historias.getChildren("Historia");
+        Element rootnode = doc.getRootElement();
+        Element Historias = rootnode.getChild("Historias");
+        List lista = Historias.getChildren("Historia");
           /* for(int i =0;i<lista.size();i++){
                 Element node = (Element) lista.get(i);
                 if(node.getChildText("Correo").equals(Correo)){
                     return node.getChildText("Rol");
                 }
             }*/
-        
-          Element node;
-          Element node2;
-          List lista2=null;
+            Element node;
+            Element node2;
+            List lista2=null;
           out.println("<!DOCTYPE html>\n" +
 "<html>\n" +
 "    <head>\n" +
@@ -78,7 +74,8 @@ public class Diagramas extends HttpServlet {
                 node=(Element) lista.get(i);
                 if (node.getAttributeValue("Creador").equals(correo)){
                     lista2=node.getChildren("Serial");
-                    out.println("<tr><th> Nombre Historia: "+node.getAttributeValue("NombreH")+"</th> <th> <a href='Lectura?NombreH="+node.getAttributeValue("NombreH")+"'>Añadir pagina</a></th></tr>");
+                    out.println("<tr><th> Nombre Historia: "+node.getAttributeValue("NombreH")+"</th> <th> <a href='Lectura?NombreH="+node.getAttributeValue("NombreH")+"'>Añadir pagina</a></th>"
+                            + "<th> <a href='VerHistoriaCreador?NombreH="+node.getAttributeValue("NombreH")+"'>Ver Lectura</a></th></tr>");
                     try{
                         for (int j=0 ; j<lista2.size(); j++){
                             node2 = (Element) lista2.get(j);
