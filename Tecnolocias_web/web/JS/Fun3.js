@@ -20,10 +20,9 @@ $(document).ready(function () {
             Actual=Actual-1;
             if(Actual==0){
                 $("#R").attr('disabled', 'disabled');
-                $("#A").show();
             }else{
-                $("#R").show();
-                $("#A").show();
+                $("#A").removeAttr('disabled');
+                $("#R").removeAttr('disabled');
                 canvas.loadFromJSON(Historia.Libro[Actual].Contenido);
                 $('#Pagina').text("Pagina: "+Historia.Libro[Actual].NumPagina);
             }
@@ -39,8 +38,8 @@ $(document).ready(function () {
                 $("#R").show();
                 $("#A").attr('disabled', 'disabled');
             }else{
-                $("#R").show();
-                $("#A").show();
+                $("#A").removeAttr('disabled');
+                $("#R").removeAttr('disabled');
                 canvas.loadFromJSON(Historia.Libro[Actual].Contenido);
                 $('#Pagina').text("Pagina: "+Historia.Libro[Actual].NumPagina);
             }
@@ -48,8 +47,6 @@ $(document).ready(function () {
             $('#Pagina').text("Pagina: "+Historia.Libro[Actual].NumPagina);
         }
     });
-
-    $("#R").hide();
     function Cargar(){
         $.ajax({
             url: 'VistaHistoria',
@@ -62,7 +59,7 @@ $(document).ready(function () {
                 canvas.loadFromJSON(Historia.Libro[0].Contenido);
                 $('#Pagina').text("Pagina: "+Historia.Libro[0].NumPagina);
                 console.log((Historia.Libro[0].Contenido));
-                $("#TITULO").text(".Lectura: "+Historia.Nombre);
+                $("#TITULO").text("Lectura: "+Historia.Nombre);
                 if(tam===1){
                     $("#R").hide();
                     $("#A").hide();
