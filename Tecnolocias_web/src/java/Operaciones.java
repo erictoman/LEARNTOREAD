@@ -170,7 +170,7 @@ public class Operaciones {
                node.detach();
                xmlout.output(doc,new FileWriter(path));
                xmlout.output(doc,System.out);
-                return 1;
+               return 1;
            }   
        }
        return 0;
@@ -230,8 +230,7 @@ public class Operaciones {
         return res;
     }
     
-    public String obtenerS(String correo, String nom , String path , String numS) throws JDOMException, IOException
-    {
+    public String obtenerS(String correo, String nom , String path , String numS) throws JDOMException, IOException{
        String ser="";
        File xml = new File(path);
        SAXBuilder builder = new SAXBuilder();
@@ -257,6 +256,40 @@ public class Operaciones {
             }
         return ser;
     }
+    
+    public String EliminarPagina(String correo, String nom , String path , String numS) throws JDOMException, IOException{
+       File xml = new File(path);
+       SAXBuilder builder = new SAXBuilder();
+       Document doc = (Document) builder.build(xml);
+       Element rootnode = doc.getRootElement();
+       Element Historia = rootnode.getChild("Historias");
+       List lista = Historia.getChildren("Historia");
+        System.out.println(correo);
+        System.out.println(nom);
+        System.out.println(numS);
+         XMLOutputter xmlout= new XMLOutputter();
+           for(int i =0;i<lista.size();i++){
+                Element node = (Element) lista.get(i);
+                if(node.getAttributeValue("NombreH").equals(nom) && node.getAttributeValue("Creador").equals(correo)){
+                    List Lista2 = node.getChildren("Serial");
+                    Element nodo2;
+                    for(int j=0 ; j<lista.size(); j++)
+                    {
+                        nodo2=(Element)Lista2.get(j);
+                        if(nodo2.getAttributeValue("numS").equals(numS))
+                        {
+                            nodo2.detach();
+                            xmlout.output(doc,new FileWriter(path));
+                            xmlout.output(doc,System.out);
+                            return "Pagina "+numS+" eliminada";
+                        }
+                    }
+                }
+            }
+        return "";
+    }
+    
+    
     
     public String ObtenerHistoria(String Correo , String Nombre, String path) throws IOException{
         Document doc = new Document();

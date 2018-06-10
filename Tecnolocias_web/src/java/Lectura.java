@@ -35,8 +35,7 @@ public class Lectura extends HttpServlet {
        //Num;
        PrintWriter out = response.getWriter();
         try {
-            out.println(""
-                    + "<!DOCTYPE html>\n" +
+out.println("<!DOCTYPE html>\n" +
 "<html>\n" +
 "    <head>\n" +
 "        <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/fabric.js/2.2.4/fabric.min.js\"></script>\n" +
@@ -47,12 +46,11 @@ public class Lectura extends HttpServlet {
 "        <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/bulma.css\">\n" +
 "        <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS/stilo.css\">\n" +
 "    </head>\n" +
-"    <body>\n"
-     + "<section class='section'>" +
+"    <body>\n" +
 "        <div id='centeredDiv'>\n" +
-"            <H1 class=\"title is-3 has-text-centered\">Modifica la pagina</H1>\n" +
+"            <H1 class=\"title is-3 has-text-centered\">Crea una nueva pagina</H1>\n" +
 "        </div>		\n" +
-      "</section>" +
+"        <div class=\"Container\">\n" +
 "            <section class=\"section\">\n" +
 "                <div class=\"Content\">\n" +
 "                    <div class=\"Wrapper\">\n" +
@@ -65,15 +63,14 @@ public class Lectura extends HttpServlet {
 "                                <audio autoplay src=\"\" class=\"A\"></audio>\n" +
 "                                <br><br>\n" +
 "                                <button class=\"button is-info\" id=\"botonguardar\">Guardar</button><br>\n" +
-                    "							<input type='hidden' name='nom' id='cVV' value='"+o.obtenerS((String) sesion.getAttribute("CorreoU"),request.getParameter("correo"),path1 , request.getParameter("numS"))+"' />\n" +
 "                                <br>\n" +
-"                                <input class=\"input\" type='text' name='numero' id='numero' placeholder='Numero de pagina' value='"+NUM+"' readonly/>  \n" +
+"							<input type='hidden' name='nom' id='cVV' value='"+o.obtenerS((String) sesion.getAttribute("CorreoU"),request.getParameter("correo"),path1 , request.getParameter("numS"))+"' />\n" +
+"                                <input class=\"input\" type='text' name='numero' id='numero' placeholder='Numero de pagina' value='"+NUM+"' readonly />  \n" +
 "                                <br>\n" +
-"                                <input class=\"input\" type='text' name='NombreH' id='NombreH' value='"+nombre+"' readonly/><br><br>  \n" +
+"                                <input class=\"input\" type='text' name='NombreH' id='NombreH' value='"+nombre+"' readonly/>  \n" +
 "                            </div>\n" +
 "                        </div>\n" +
-"                        <div class=\"LeftContent is-pulled-right\" id=\"over\">\n"
-                    + "<figure class=\"image is-128x128\">\n");
+"                        <div class=\"LeftContent is-pulled-right\" id=\"over\" >\n" );
                     String path=request.getRealPath("/Fotos");
                     File dir = new File(path); //La clase file tiene 3 constructores  File (String path).  Crea una nueva instancia de tipo file  convirtiendo la cadena de nombre de ruta dada en una ruta de acceso abstracta.
                     String[] ficheros = dir.list();
@@ -84,13 +81,12 @@ public class Lectura extends HttpServlet {
                         index=ficheros[i].indexOf((String)sesion.getAttribute("CorreoU"));
                         if(index!=-1)
                         {
-                          out.println("<img src='Fotos/"+ficheros[i]+"' with='100' height='100'/> <br/> <br/>");
+                          out.println("<img src='Fotos/"+ficheros[i]+"' width='100' height='100'/><br>");
                         }
-                    }           	
-out.println("" +
-"                            </figure>\n" +
-"                        </div>\n" +
+                    }
+out.print("                        </div>\n" +
 "                    </div>\n" +
+"                </div>\n" +
 "            </section>\n" +
 "        </div>\n" +
 "    </body>\n" +
