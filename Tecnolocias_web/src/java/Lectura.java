@@ -31,7 +31,6 @@ public class Lectura extends HttpServlet {
         Operaciones o = new Operaciones();
  
        response.setContentType("text/html;charset=UTF-8");
-       int NUM=1+o.NumHistoria(Correo,nombre, path1);
        //Num;
        PrintWriter out = response.getWriter();
         try {
@@ -49,7 +48,7 @@ out.println("<!DOCTYPE html>\n" +
 "    <body>\n" +
 "        <div id='centeredDiv'>\n" +
 "            <H1 class=\"title is-3 has-text-centered\">Crea una nueva pagina</H1>\n" +
-"        </div>		\n" +
+"        </div>	\n" +
 "        <div class=\"Container\">\n" +
 "            <section class=\"section\">\n" +
 "                <div class=\"Content\">\n" +
@@ -65,7 +64,7 @@ out.println("<!DOCTYPE html>\n" +
 "                                <button class=\"button is-info\" id=\"botonguardar\">Guardar</button><br>\n" +
 "                                <br>\n" +
 "							<input type='hidden' name='nom' id='cVV' value='"+o.obtenerS((String) sesion.getAttribute("CorreoU"),request.getParameter("correo"),path1 , request.getParameter("numS"))+"' />\n" +
-"                                <input class=\"input\" type='text' name='numero' id='numero' placeholder='Numero de pagina' value='"+NUM+"' readonly />  \n" +
+"                                <input class=\"input\" type='text' name='numero' id='numero' placeholder='Numero de pagina' value=''  />  \n" +
 "                                <br>\n" +
 "                                <input class=\"input\" type='text' name='NombreH' id='NombreH' value='"+nombre+"' readonly/>  \n" +
 "                            </div>\n" +

@@ -322,29 +322,6 @@ public class Operaciones {
         return Cuento;
     }
     
-    public int NumHistoria(String Correo , String Nombre, String path) throws IOException{
-        Document doc = new Document();
-        try {
-            File fXmlFile = new File(path);
-            SAXBuilder builder = new SAXBuilder();
-            doc=builder.build(fXmlFile);
-        }catch(JDOMException | IOException e ){
-            System.out.println("" + e.getMessage());
-        }
-        List lista=doc.getRootElement().getChild("Historias").getChildren("Historia");
-        Element nodo;
-        System.out.println(Nombre);
-        System.out.println(Correo);
-        for(int i =0;i<lista.size();i++){
-            nodo = (Element) lista.get(i);
-            if(nodo.getAttributeValue("NombreH").equals(Nombre) && nodo.getAttributeValue("Creador").equals(Correo)){
-                System.out.println("Hasta Aqui");
-                List listaPaginas=nodo.getChildren();
-                return listaPaginas.size();
-            }
-        }
-        return 0;
-    }
     
     public int editarS (String correo , String nom , String path ,String serial, String numS) throws IOException, JDOMException
     {
