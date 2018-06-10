@@ -51,6 +51,10 @@ public class Grupo extends HttpServlet {
         List lista2 = Grupos.getChildren("Grupo");
         int i=0;
         i=lista2.size();
+        i=i-1;
+        Element aux=(Element) lista2.get(i);
+        String j = aux.getAttributeValue("num");
+        i=Integer.parseInt(j);
         i=i+1;
           /* for(int i =0;i<lista.size();i++){
                 Element node = (Element) lista.get(i);

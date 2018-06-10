@@ -437,4 +437,56 @@ public class Operaciones {
             writer.flush();
         }
     }
+     public int BanGrupo(String profesor , String num , String path)throws JDOMException, IOException
+    {
+       File xml = new File(path);
+       SAXBuilder builder = new SAXBuilder();
+       
+       Document doc = (Document) builder.build(xml);
+       Element rootnode = doc.getRootElement();
+       Element usuarios = rootnode.getChild("Grupos");
+       List lista = usuarios.getChildren("Grupo");
+       XMLOutputter xmlout= new XMLOutputter();
+       for(int i =0;i<lista.size();i++){
+           Element node = (Element) lista.get(i);
+           if(node.getAttributeValue("profesor").equals(profesor) && node.getAttributeValue("num").equals(num)){
+               node.detach();
+               xmlout.output(doc,new FileWriter(path));
+               xmlout.output(doc,System.out);
+               return 1;
+           }   
+       }
+       return 0;
+    }
+     public void BanAlumno (String profesor , String num , String path , String correo) throws IOException, JDOMException
+     {
+          File xml = new File(path);
+       SAXBuilder builder = new SAXBuilder();
+       
+       Document doc = (Document) builder.build(xml);
+       Element rootnode = doc.getRootElement();
+       Element usuarios = rootnode.getChild("Grupos");
+       List lista = usuarios.getChildren("Grupo");
+       List lista2;
+       Element nodo;
+       XMLOutputter xmlout= new XMLOutputter();
+       for(int i =0;i<lista.size();i++){
+           Element node = (Element) lista.get(i);
+           if(node.getAttributeValue("profesor").equals(profesor) && node.getAttributeValue("num").equals(num)){
+               lista2 = node.getChildren("NombreA");
+               for(int j=0; j<lista2.size() ; j++)
+               {
+                   nodo=(Element) lista2.get(j);
+                   if(nodo.getAttributeValue("correo").equals(correo))
+                   {
+               nodo.detach();
+               xmlout.output(doc,new FileWriter(path));
+               xmlout.output(doc,System.out);
+                   }
+               }
+              
+           }   
+       }
+         
+     }
 }

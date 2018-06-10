@@ -121,6 +121,14 @@
         <servlet-name>Alumnos</servlet-name>
         <servlet-class>Alumnos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BanGrup</servlet-name>
+        <servlet-class>BanGrup</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BanAlum</servlet-name>
+        <servlet-class>BanAlum</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -236,6 +244,14 @@
     <servlet-mapping>
         <servlet-name>Alumnos</servlet-name>
         <url-pattern>/Alumnos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BanGrup</servlet-name>
+        <url-pattern>/BanGrup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BanAlum</servlet-name>
+        <url-pattern>/BanAlum</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

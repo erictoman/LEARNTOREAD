@@ -76,12 +76,14 @@ public class Alumnos extends HttpServlet {
                 node=(Element) lista.get(i);
               
                     lista2=node.getChildren("NombreA");
-                    out.println("<tr><th>Grupo:  "+node.getAttributeValue("num")+"</th> <th>Profesor: "+node.getAttributeValue("profesor")+"</th>");
+                    out.println("<tr><th>Grupo:  "+node.getAttributeValue("num")+"</th> <th>Profesor: "+node.getAttributeValue("profesor")+"</th>"
+                            + " <th> <a href='BanGrup?num="+node.getAttributeValue("num")+"&profesor="+node.getAttributeValue("profesor")+"'>Eliminar</a> </th><tr>");
                             
                     try{
                         for (int j=0 ; j<lista2.size(); j++){
                             node2 = (Element) lista2.get(j);
-                            out.println("<tr><td>"+(j+1) +" Alumno: "+node2.getText()+"</td> <td>Correo: "+node2.getAttributeValue("correo")+"</td> </tr>");
+                            out.println("<tr><td>"+(j+1) +" Alumno: "+node2.getText()+"</td> <td>Correo: "+node2.getAttributeValue("correo")+"</td> "
+                                    + " <th> <a href='BanAlum?num="+node.getAttributeValue("num")+"&profesor="+node.getAttributeValue("profesor")+"&correo="+node2.getAttributeValue("correo")+" '>Eliminar</a> </th><tr>");
                             }
                         }
                     catch(Exception e){
