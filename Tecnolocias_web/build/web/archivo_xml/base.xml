@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Sistema>
+
 <Sistema>
   <Usuarios>
     <Usuario>
@@ -58,6 +59,9 @@
     <Grupo num="2" profesor="coco@gmail.com">
       <NombreA correo="belem@gmail.com">BELEM Ruiz</NombreA>
     </Grupo>
-    
+    <Grupo num="3" profesor="rafa@gmail.com" />
+    <Grupo num="4" profesor="coco@gmail.com">
+      <NombreA correo="art@gmail.com">Arturo Rivas</NombreA>
+    </Grupo>
   </Grupos>
 </Sistema>
